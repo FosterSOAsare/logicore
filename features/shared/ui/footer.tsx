@@ -1,0 +1,142 @@
+import Link from "next/link";
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
+
+export default function Footer() {
+  return (
+    <footer className="bg-primary text-white pt-20 pb-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          {/* Brand Column */}
+          <div>
+            <Link
+              href="/"
+              className="text-2xl font-bold tracking-tighter flex items-center gap-1 mb-6"
+            >
+              LOGICORE
+              <div className="w-2 h-2 rounded-full bg-secondary mb-1" />
+            </Link>
+            <p className="text-gray-400 leading-relaxed mb-6">
+              Global logistics partner delivering excellence in freight,
+              warehousing, and supply chain solutions.
+            </p>
+            <div className="flex space-x-4">
+              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary hover:text-white transition-all duration-300 text-gray-400"
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div className="">
+            <h3 className="text-lg !text-white font-bold mb-6">Quick Links</h3>
+            <ul className="space-y-4">
+              {[
+                "About Us",
+                "Our Services",
+                "Track Shipment",
+                "News & Media",
+                "Careers",
+              ].map((item) => (
+                <li key={item}>
+                  <Link
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-secondary group-hover:bg-secondary transition-colors" />
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="text-lg !text-white font-bold mb-6">Services</h3>
+            <ul className="space-y-4">
+              {[
+                "Air Freight",
+                "Ocean Freight",
+                "Land Transport",
+                "Warehousing",
+                "Customs Brokerage",
+              ].map((item) => (
+                <li key={item}>
+                  <Link
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-secondary group-hover:bg-secondary transition-colors" />
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="text-lg !text-white font-bold mb-6">Contact Us</h3>
+            <ul className="space-y-6">
+              <li className="flex items-start gap-4">
+                <MapPin className="w-6 h-6 text-secondary shrink-0" />
+                <span className="text-gray-400">
+                  123 Logistics Avenue, <br />
+                  Business Park, NY 10001
+                </span>
+              </li>
+              <li className="flex items-center gap-4">
+                <Phone className="w-5 h-5 text-secondary shrink-0" />
+                <span className="text-gray-400">+1 (555) 123-4567</span>
+              </li>
+              <li className="flex items-center gap-4">
+                <Mail className="w-5 h-5 text-secondary shrink-0" />
+                <span className="text-gray-400">contact@logicore.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-gray-500 text-sm">
+            © 2025 LogiCore Logistics. All Rights Reserved.
+          </p>
+          <div className="flex space-x-8">
+            <Link
+              href="/privacy"
+              className="text-gray-500 hover:text-white text-sm transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms"
+              className="text-gray-500 hover:text-white text-sm transition-colors"
+            >
+              Terms of Service
+            </Link>
+            <Link
+              href="/cookies"
+              className="text-gray-500 hover:text-white text-sm transition-colors"
+            >
+              Cookie Policy
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
