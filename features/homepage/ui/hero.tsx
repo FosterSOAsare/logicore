@@ -22,18 +22,18 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[100vh] flex items-center justify-center py-20 overflow-hidden bg-white">
+    <section className="relative min-h-[100vh] flex items-center justify-center py-20 overflow-hidden bg-primary">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero-visual-real.png"
+          src="/hero-image.png"
           alt="Global Logistics Network"
           fill
-          className="object-cover opacity-70"
+          className="object-cover object-[center_20%] scale-125 mt-26 mix-blend-overlay"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/50 to-primary/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-primary/40 to-primary/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-primary/40 to-primary/20" />
       </div>
 
       <div className="w-full max-w-7xl mx-auto px-6 lg:px-8  relative z-10">
@@ -43,13 +43,13 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 shadow-sm mb-8 backdrop-blur-sm mx-auto"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 border border-white/10 shadow-sm mb-8 backdrop-blur-sm mx-auto"
           >
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
             </span>
-            <span className="text-white font-semibold tracking-wide text-sm">
+            <span className="text-gray-200 font-semibold tracking-wide text-sm">
               #1 Global Logistics Partner
             </span>
           </motion.div>
@@ -83,10 +83,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="bg-white p-2 rounded-2xl shadow-2xl shadow-black/20 max-w-2xl mx-auto"
+            className="bg-white/5 backdrop-blur-md p-2 rounded-2xl shadow-2xl shadow-black/20 max-w-2xl mx-auto border border-white/10"
           >
             <div className="flex flex-col sm:flex-row items-center p-2 gap-2">
-              <div className="flex-1 flex items-center px-4 h-14 bg-gray-50 rounded-xl w-full border border-gray-100 focus-within:border-secondary/50 focus-within:bg-white transition-all">
+              <div className="flex-1 flex items-center px-4 h-14 bg-white/5 rounded-xl w-full border border-white/10 focus-within:border-secondary/50 focus-within:bg-white/10 transition-all">
                 <Package className="text-gray-400 w-5 h-5 mr-3" />
                 <input
                   type="text"
@@ -94,7 +94,7 @@ export default function Hero() {
                   onChange={(e) => setTrackingId(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleTrack()}
                   placeholder="Enter Tracking ID"
-                  className="flex-1 bg-transparent border-none outline-none text-primary placeholder:text-gray-400 font-medium"
+                  className="flex-1 bg-transparent border-none outline-none text-white placeholder:text-gray-500 font-medium"
                   disabled={isLoading}
                 />
               </div>
