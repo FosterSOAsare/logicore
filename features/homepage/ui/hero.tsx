@@ -3,10 +3,26 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Package } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function Hero() {
+  const router = useRouter();
+  const [trackingId, setTrackingId] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleTrack = async () => {
+    if (trackingId.trim()) {
+      setIsLoading(true);
+      // Simulate network delay for better UX
+      await new Promise((resolve) => setTimeout(resolve, 800));
+      router.push(`/tracking/${trackingId}`);
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <section className="relative min-h-[100vh] flex items-center justify-center py-20 overflow-hidden bg-primary">
+    <section className="relative min-h-[100vh] flex items-center justify-center py-20 overflow-hidden bg-white">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -67,20 +83,34 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="bg-white p-2 rounded-2xl shadow-2xl shadow-black/20 max-w-xl mx-auto"
+            className="bg-white p-2 rounded-2xl shadow-2xl shadow-black/20 max-w-2xl mx-auto"
           >
             <div className="flex flex-col sm:flex-row items-center p-2 gap-2">
               <div className="flex-1 flex items-center px-4 h-14 bg-gray-50 rounded-xl w-full border border-gray-100 focus-within:border-secondary/50 focus-within:bg-white transition-all">
                 <Package className="text-gray-400 w-5 h-5 mr-3" />
                 <input
                   type="text"
+                  value={trackingId}
+                  onChange={(e) => setTrackingId(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleTrack()}
                   placeholder="Enter Tracking ID"
                   className="flex-1 bg-transparent border-none outline-none text-primary placeholder:text-gray-400 font-medium"
+                  disabled={isLoading}
                 />
               </div>
-              <button className="w-full sm:w-auto px-8 h-14 bg-secondary text-white rounded-xl flex items-center justify-center gap-2 hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 font-semibold group">
-                Track Cargo
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <button
+                onClick={handleTrack}
+                disabled={isLoading}
+                className="w-full sm:w-auto px-8 h-14 bg-secondary text-white rounded-xl flex items-center justify-center gap-2 hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 font-semibold group cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed min-w-[160px]"
+              >
+                {isLoading ? (
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                ) : (
+                  <>
+                    Track Cargo
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
               </button>
             </div>
           </motion.div>

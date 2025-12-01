@@ -22,28 +22,40 @@ export default function ServicesHero() {
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 shadow-sm mb-8 backdrop-blur-sm">
+        <div className="max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, type: "spring", stiffness: 200 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 shadow-sm mb-8 backdrop-blur-sm"
+          >
             <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
             <span className="text-white font-semibold tracking-wide uppercase text-xs">
               Our Expertise
             </span>
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold !text-white mb-8 tracking-tight leading-[1.1]">
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, type: "spring" }}
+            className="text-5xl md:text-7xl font-bold !text-white mb-8 tracking-tight leading-[1.1]"
+          >
             Logistics Solutions <br />
             <span className="text-secondary">Engineered for Growth</span>
-          </h1>
-          <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl text-gray-300 leading-relaxed max-w-2xl"
+          >
             From complex global supply chains to urgent last-mile deliveries, we
             provide the infrastructure and expertise to keep your business
             moving forward.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
       </div>
     </section>
   );

@@ -10,6 +10,7 @@ import {
   FileCheck,
   ArrowUpRight,
 } from "lucide-react";
+import Link from "next/link";
 
 const services = [
   {
@@ -88,27 +89,31 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-gray-50 rounded-3xl p-8 hover:bg-white hover:shadow-xl hover:shadow-gray-200/50 transition-all duration-300 border border-transparent hover:border-gray-100"
             >
-              <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-2 group-hover:translate-x-0">
-                <ArrowUpRight className="w-6 h-6 text-secondary" />
-              </div>
+              <Link
+                href="/services"
+                className="block h-full group relative bg-gray-50 rounded-3xl p-8 hover:bg-white hover:shadow-xl hover:shadow-gray-200/50 transition-all duration-300 border border-transparent hover:border-gray-100"
+              >
+                <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-2 group-hover:translate-x-0">
+                  <ArrowUpRight className="w-6 h-6 text-secondary" />
+                </div>
 
-              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
-                <service.icon className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" />
-              </div>
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+                  <service.icon className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" />
+                </div>
 
-              <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-secondary transition-colors">
-                {service.title}
-              </h3>
+                <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-secondary transition-colors">
+                  {service.title}
+                </h3>
 
-              <p className="text-muted leading-relaxed mb-6">
-                {service.description}
-              </p>
+                <p className="text-muted leading-relaxed mb-6">
+                  {service.description}
+                </p>
 
-              <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden">
-                <div className="w-0 h-full bg-secondary group-hover:w-full transition-all duration-500 ease-out" />
-              </div>
+                <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden">
+                  <div className="w-0 h-full bg-secondary group-hover:w-full transition-all duration-500 ease-out" />
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>

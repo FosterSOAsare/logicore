@@ -81,7 +81,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <Link
               href="/contact"
-              className="group px-6 py-2.5 bg-primary text-white text-sm font-medium rounded-full hover:bg-primary/90 transition-all flex items-center gap-2"
+              className="group px-6 py-2.5 bg-secondary text-white text-sm font-medium rounded-full hover:bg-secondary/90 transition-all flex items-center gap-2"
             >
               Contact Us
               <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />

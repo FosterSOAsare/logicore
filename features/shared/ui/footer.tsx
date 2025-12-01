@@ -22,11 +22,11 @@ export default function Footer() {
   };
 
   const quickLinks = [
+    { name: "Home", href: "/" },
     { name: "About Us", href: "/company" },
     { name: "Our Services", href: "/services" },
     { name: "Track Shipment", href: "/tracking" },
-    { name: "News & Media", href: "/news" },
-    { name: "Careers", href: "/careers" },
+    { name: "Contact us", href: "/contact" },
   ];
 
   const servicesLinks = [
@@ -136,11 +136,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-4">
                 <Phone className="w-5 h-5 text-secondary shrink-0" />
-                <span className="text-gray-400">+1 (555) 123-4567</span>
+                <span className="text-gray-400">+233 55 052 9015</span>
               </li>
               <li className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-secondary shrink-0" />
-                <span className="text-gray-400">contact@logicore.com</span>
+                <span className="text-gray-400">fostersoasare@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -153,21 +153,23 @@ export default function Footer() {
           <div className="flex space-x-8">
             <Link
               href="/privacy"
-              className="text-gray-500 hover:text-white text-sm transition-colors"
+              className={`text-sm transition-colors ${
+                isActive("/privacy")
+                  ? "text-secondary font-medium"
+                  : "text-gray-500 hover:text-white"
+              }`}
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms"
-              className="text-gray-500 hover:text-white text-sm transition-colors"
+              className={`text-sm transition-colors ${
+                isActive("/terms")
+                  ? "text-secondary font-medium"
+                  : "text-gray-500 hover:text-white"
+              }`}
             >
               Terms of Service
-            </Link>
-            <Link
-              href="/cookies"
-              className="text-gray-500 hover:text-white text-sm transition-colors"
-            >
-              Cookie Policy
             </Link>
           </div>
         </div>
