@@ -1,14 +1,27 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { Award, Users, Globe2 } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
 
 export default function CompanyStory() {
   const milestones = [
-    { year: "2010", label: "Founded", icon: Award },
-    { year: "10K+", label: "Clients Served", icon: Users },
-    { year: "150+", label: "Countries", icon: Globe2 },
+    { year: "2010", label: "Founded", icon: Award, isNumber: false },
+    {
+      year: "10000",
+      suffix: "K+",
+      label: "Clients Served",
+      icon: Users,
+      isNumber: true,
+    },
+    {
+      year: "150",
+      suffix: "+",
+      label: "Countries",
+      icon: Globe2,
+      isNumber: true,
+    },
   ];
 
   return (
@@ -183,22 +196,101 @@ export default function CompanyStory() {
               className="grid grid-cols-3 gap-4 pt-6 border-t border-gray-200"
             >
               {milestones.map((milestone, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-12 h-12 mx-auto mb-3 bg-secondary/10 rounded-xl flex items-center justify-center">
-                    <milestone.icon className="w-6 h-6 text-secondary" />
-                  </div>
-                  <p className="text-2xl md:text-3xl font-bold text-primary mb-1">
-                    {milestone.year}
-                  </p>
-                  <p className="text-xs md:text-sm text-gray-500 font-medium">
-                    {milestone.label}
-                  </p>
-                </div>
+                <MilestoneCard
+                  key={index}
+                  milestone={milestone}
+                  index={index}
+                />
               ))}
             </motion.div>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+// Counting animation component
+function CountingNumber({
+  target,
+  suffix = "",
+}: {
+  target: number;
+  suffix?: string;
+}) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (isInView) {
+      // Wait for motion animation to finish (delay: 0.8s + duration: 0.5s = 1.3s total)
+      const initialDelay = setTimeout(() => {
+        let startTime: number | null = null;
+        const duration = 2000; // 2 seconds
+
+        const animate = (currentTime: number) => {
+          if (!startTime) startTime = currentTime;
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+
+          // Easing function for smooth animation
+          const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+          const currentCount = Math.floor(easeOutQuart * target);
+
+          setCount(currentCount);
+
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            setCount(target);
+          }
+        };
+
+        requestAnimationFrame(animate);
+      }, 1300); // Wait 1.3 seconds for motion animation to complete
+
+      return () => clearTimeout(initialDelay);
+    }
+  }, [isInView, target]);
+
+  // Format number with K suffix if needed
+  const displayValue = target >= 10000 ? `${Math.floor(count / 1000)}` : count;
+
+  return (
+    <span ref={ref}>
+      {displayValue}
+      {suffix}
+    </span>
+  );
+}
+
+// Milestone card component
+function MilestoneCard({
+  milestone,
+  index,
+}: {
+  milestone: any;
+  index: number;
+}) {
+  return (
+    <div className="text-center">
+      <div className="w-12 h-12 mx-auto mb-3 bg-secondary/10 rounded-xl flex items-center justify-center">
+        <milestone.icon className="w-6 h-6 text-secondary" />
+      </div>
+      <p className="text-2xl md:text-3xl font-bold text-primary mb-1">
+        {milestone.isNumber ? (
+          <CountingNumber
+            target={parseInt(milestone.year)}
+            suffix={milestone.suffix}
+          />
+        ) : (
+          milestone.year
+        )}
+      </p>
+      <p className="text-xs md:text-sm text-gray-500 font-medium">
+        {milestone.label}
+      </p>
+    </div>
   );
 }
