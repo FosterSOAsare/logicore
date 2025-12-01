@@ -35,7 +35,7 @@ export default function ContactForm() {
                 {
                   icon: MapPin,
                   title: "Headquarters",
-                  content: "123 Logistics Way, New York, NY 10001",
+                  content: "New York, NY 10001",
                   desc: "Global Operations Center",
                 },
               ].map((item, index) => (

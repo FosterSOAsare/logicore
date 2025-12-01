@@ -115,11 +115,7 @@ export default function Contact() {
                   <h3 className="font-bold text-primary text-lg md:text-xl">
                     Global HQ
                   </h3>
-                  <p className="text-muted">
-                    123 Logistics Avenue, Business Park
-                    <br />
-                    New York, NY 10001
-                  </p>
+                  <p className="text-muted">New York, NY 10001</p>
                 </div>
               </motion.div>
             </div>
