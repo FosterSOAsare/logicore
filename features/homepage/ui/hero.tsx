@@ -22,18 +22,18 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[100vh] flex items-center justify-center py-20 overflow-hidden bg-primary">
+    <section className="relative min-h-[100vh] flex items-center justify-center py-32 overflow-hidden bg-primary">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/hero-image.png"
           alt="Global Logistics Network"
           fill
-          className="object-cover object-[center_20%] scale-125 mt-26 mix-blend-overlay"
+          className="object-cover object-[center_20%] scale-130 mt-26 mix-blend-overlay"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-primary/40 to-primary/80" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-primary/40 to-primary/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-primary/35 to-primary/10" />
       </div>
 
       <div className="w-full max-w-7xl mx-auto px-6 lg:px-8  relative z-10">
@@ -80,13 +80,13 @@ export default function Hero() {
 
           {/* Tracking Widget */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="bg-white/5 backdrop-blur-md p-2 rounded-2xl shadow-2xl shadow-black/20 max-w-2xl mx-auto border border-white/10"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.3, type: "spring" }}
+            className="bg-white p-2 rounded-2xl shadow-2xl shadow-black/10 mt-36 max-w-4xl mx-auto"
           >
             <div className="flex flex-col sm:flex-row items-center p-2 gap-2">
-              <div className="flex-1 flex items-center px-4 h-14 bg-white/5 rounded-xl w-full border border-white/10 focus-within:border-secondary/50 focus-within:bg-white/10 transition-all">
+              <div className="flex-1 flex items-center px-4 h-14 bg-gray-50 rounded-xl w-full border border-gray-200 focus-within:border-secondary focus-within:bg-white transition-all">
                 <Package className="text-gray-400 w-5 h-5 mr-3" />
                 <input
                   type="text"
@@ -94,7 +94,7 @@ export default function Hero() {
                   onChange={(e) => setTrackingId(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleTrack()}
                   placeholder="Enter Tracking ID"
-                  className="flex-1 bg-transparent border-none outline-none text-white placeholder:text-gray-500 font-medium"
+                  className="flex-1 bg-transparent border-none outline-none text-gray-900 placeholder:text-gray-400 font-medium"
                   disabled={isLoading}
                 />
               </div>
