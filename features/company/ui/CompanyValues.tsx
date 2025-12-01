@@ -28,18 +28,18 @@ const values = [
 
 export default function CompanyValues() {
   return (
-    <section className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl font-bold text-primary mb-6">
+    <section className="py-12 lg:py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+          <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 lg:mb-6">
             Our Core <span className="text-secondary">Values</span>
           </h2>
-          <p className="text-gray-500 text-lg">
+          <p className="text-gray-500 text-base lg:text-lg">
             These principles guide our decisions and define our culture.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {values.map((value, index) => (
             <motion.div
               key={index}
@@ -47,23 +47,23 @@ export default function CompanyValues() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-white p-8 rounded-xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 text-center relative overflow-hidden"
+              className="group bg-white p-6 lg:p-8 rounded-xl shadow-sm active:shadow-2xl hover:shadow-2xl transition-all duration-500 border border-gray-100 text-center relative overflow-hidden"
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary/0 via-secondary to-secondary/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary/0 via-secondary to-secondary/0 transform scale-x-0 group-active:scale-x-100 group-hover:scale-x-100 transition-transform duration-500" />
 
-              <div className="w-16 h-16 mx-auto bg-gray-50 rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors duration-500 relative z-10">
+              <div className="w-16 h-16 mx-auto bg-gray-50 rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-white group-active:bg-secondary group-active:text-white transition-colors duration-500 relative z-10">
                 <value.icon className="w-8 h-8" />
               </div>
 
-              <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-secondary transition-colors duration-300">
+              <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-secondary group-active:text-secondary transition-colors duration-300">
                 {value.title}
               </h3>
 
-              <p className="text-gray-500 leading-relaxed text-sm">
+              <p className="text-gray-500 leading-relaxed text-sm group-hover:text-secondary group-active:text-secondary transition-colors duration-300">
                 {value.desc}
               </p>
 
-              <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-secondary/5 rounded-full blur-2xl group-hover:bg-secondary/10 transition-colors duration-500" />
+              <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-secondary/5 rounded-full blur-2xl group-hover:bg-secondary/10 group-active:bg-secondary/10 transition-colors duration-500" />
             </motion.div>
           ))}
         </div>

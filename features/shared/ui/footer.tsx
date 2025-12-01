@@ -38,8 +38,8 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-primary text-white pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <footer className="bg-primary text-white pt-10 md:pt-20 pb-10">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
           <div>
@@ -59,7 +59,7 @@ export default function Footer() {
                 <a
                   key={i}
                   href="#"
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary hover:text-white transition-all duration-300 text-gray-400"
+                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary hover:text-white active:bg-secondary active:text-white transition-all duration-300 text-gray-400"
                 >
                   <Icon size={18} />
                 </a>
@@ -78,14 +78,14 @@ export default function Footer() {
                     className={`transition-colors flex items-center gap-2 group ${
                       isActive(item.href)
                         ? "text-secondary"
-                        : "text-gray-400 hover:text-white"
+                        : "text-gray-400 hover:text-white active:text-white"
                     }`}
                   >
                     <span
                       className={`w-1.5 h-1.5 rounded-full transition-colors ${
                         isActive(item.href)
                           ? "bg-secondary"
-                          : "bg-gray-600 group-hover:bg-secondary"
+                          : "bg-gray-600 group-hover:bg-secondary group-active:bg-secondary"
                       }`}
                     />
                     {item.name}
@@ -106,14 +106,14 @@ export default function Footer() {
                     className={`transition-colors flex items-center gap-2 group ${
                       isActive(item.href)
                         ? "text-secondary"
-                        : "text-gray-400 hover:text-white"
+                        : "text-gray-400 hover:text-white active:text-white"
                     }`}
                   >
                     <span
                       className={`w-1.5 h-1.5 rounded-full transition-colors ${
                         isActive(item.href)
                           ? "bg-secondary"
-                          : "bg-gray-600 group-hover:bg-secondary"
+                          : "bg-gray-600 group-hover:bg-secondary group-active:bg-secondary"
                       }`}
                     />
                     {item.name}
@@ -156,7 +156,7 @@ export default function Footer() {
               className={`text-sm transition-colors ${
                 isActive("/privacy")
                   ? "text-secondary font-medium"
-                  : "text-gray-500 hover:text-white"
+                  : "text-gray-500 hover:text-white active:text-white"
               }`}
             >
               Privacy Policy
@@ -166,7 +166,7 @@ export default function Footer() {
               className={`text-sm transition-colors ${
                 isActive("/terms")
                   ? "text-secondary font-medium"
-                  : "text-gray-500 hover:text-white"
+                  : "text-gray-500 hover:text-white active:text-white"
               }`}
             >
               Terms of Service

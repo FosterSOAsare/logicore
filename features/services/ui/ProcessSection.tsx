@@ -6,28 +6,28 @@ import Link from "next/link";
 
 export default function ProcessSection() {
   return (
-    <section className="py-24 lg:py-32 bg-primary text-white relative overflow-hidden">
+    <section className="py-12 lg:py-32 bg-primary text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[linear-gradient(30deg,#ffffff_1px,transparent_1px)] bg-[length:40px_40px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-12 lg:mb-20">
           <div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl !text-white lg:text-5xl font-bold mb-6">
               Streamlined Process, <br />
               <span className="text-secondary">Maximum Efficiency</span>
             </h2>
-            <p className="text-gray-400 text-lg max-w-lg">
+            <p className="text-gray-400 text-base lg:text-lg max-w-lg">
               We've optimized every step of the logistics journey to ensure
               transparency, speed, and reliability for your cargo.
             </p>
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-start lg:justify-end">
             <Link
               href="/contact"
-              className="px-8 py-4 bg-white text-primary font-bold rounded-xl hover:bg-gray-100 transition-all flex items-center gap-2"
+              className="px-8 py-4 bg-white text-primary font-bold rounded-xl hover:bg-gray-100 active:bg-gray-100 active:scale-95 transition-all flex items-center gap-2"
             >
               Start Your Shipment
               <ArrowRight className="w-5 h-5" />
@@ -35,7 +35,7 @@ export default function ProcessSection() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
           {[
             {
               title: "01. Consultation",
@@ -69,7 +69,9 @@ export default function ProcessSection() {
               <div className="absolute top-0 left-0 w-full h-px bg-white/10 group-hover:bg-secondary/50 transition-colors duration-500" />
               <div className="pt-8">
                 <step.icon className="w-8 h-8 text-secondary mb-6" />
-                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                <h3 className="text-xl !text-white font-bold mb-3">
+                  {step.title}
+                </h3>
                 <p className="text-gray-400 leading-relaxed text-sm">
                   {step.desc}
                 </p>

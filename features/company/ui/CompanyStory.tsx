@@ -5,9 +5,9 @@ import Image from "next/image";
 
 export default function CompanyStory() {
   return (
-    <section className="py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="py-8 md:py-12 lg:py-24 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -15,7 +15,7 @@ export default function CompanyStory() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="relative h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative h-[300px] md:h-[400px] lg:h-[600px] w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
               <Image
                 src="https://images.unsplash.com/photo-1524522173746-f628baad3644?q=80&w=2131&auto=format&fit=crop"
                 alt="Journey to Excellence"
@@ -33,12 +33,12 @@ export default function CompanyStory() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-4xl font-bold text-primary mb-6"
+              className="text-3xl lg:text-4xl font-bold text-primary mb-6"
             >
               Our Journey to <br />
               <span className="text-secondary">Excellence</span>
             </motion.h2>
-            <div className="space-y-6 text-lg text-gray-500 leading-relaxed">
+            <div className="space-y-6 text-base lg:text-lg text-gray-500 leading-relaxed">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

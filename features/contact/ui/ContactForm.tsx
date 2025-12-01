@@ -115,13 +115,21 @@ export default function ContactForm() {
                 </label>
                 <select className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all bg-white text-gray-600">
                   <option>General Inquiry</option>
-                  <option>Get a Quote</option>
                   <option>Track Shipment</option>
                   <option>Partnership</option>
                   <option>Report an Issue</option>
                   <option>Billing Inquiry</option>
                   <option>Career Opportunities</option>
                 </select>
+                <p className="text-xs text-gray-500 mt-2">
+                  Looking for a shipping quote?{" "}
+                  <a
+                    href="/#quote"
+                    className="text-secondary font-medium hover:underline"
+                  >
+                    Click here to get a quick quote.
+                  </a>
+                </p>
               </div>
 
               <div className="space-y-2">
@@ -137,7 +145,7 @@ export default function ContactForm() {
 
               <button
                 type="submit"
-                className="w-full py-4 bg-secondary text-white font-bold rounded-xl hover:bg-secondary/90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-secondary/20"
+                className="w-full py-4 bg-secondary text-white font-bold rounded-xl hover:bg-secondary/90 active:bg-secondary/90 active:scale-95 transition-all flex items-center justify-center gap-2 shadow-lg shadow-secondary/20"
               >
                 Send Message
                 <Send className="w-4 h-4" />

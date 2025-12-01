@@ -36,9 +36,9 @@ export default function TrackingFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+    <section className="py-8 lg:py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Header */}
           <div>
             <motion.div
@@ -54,7 +54,7 @@ export default function TrackingFAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-4xl font-bold text-primary mb-6"
+              className="text-3xl lg:text-4xl font-bold text-primary mb-6"
             >
               Frequently Asked <br /> Questions
             </motion.h2>
@@ -76,7 +76,7 @@ export default function TrackingFAQ() {
             >
               <a
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all"
+                className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 active:bg-primary/90 active:scale-95 transition-all"
               >
                 Contact Support
               </a>
@@ -98,9 +98,9 @@ export default function TrackingFAQ() {
                   onClick={() =>
                     setOpenIndex(openIndex === index ? null : index)
                   }
-                  className="w-full hover:cursor-pointer flex items-center justify-between p-6 text-left"
+                  className="w-full hover:cursor-pointer flex items-center justify-between p-4 md:p-6 text-left"
                 >
-                  <span className="font-bold text-primary text-lg">
+                  <span className="font-semibold md:font-bold text-primary text-base md:text-lg">
                     {faq.question}
                   </span>
                   <span
@@ -126,7 +126,7 @@ export default function TrackingFAQ() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <div className="p-6 pt-0 text-gray-500 leading-relaxed">
+                  <div className="p-4 md:p-6 pt-0 text-gray-500 leading-relaxed">
                     {faq.answer}
                   </div>
                 </motion.div>

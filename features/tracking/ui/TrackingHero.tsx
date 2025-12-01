@@ -22,7 +22,7 @@ export default function TrackingHero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center py-36 overflow-hidden bg-primary">
+    <section className="relative min-h-screen flex items-center justify-center py-24 lg:py-36 overflow-hidden bg-primary">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -36,20 +36,20 @@ export default function TrackingHero() {
         <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent" />
       </div>
 
-      <div className="w-full max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto text-center">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, type: "spring", stiffness: 200 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 shadow-sm mb-8 backdrop-blur-sm mx-auto"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 shadow-sm mb-6 lg:mb-8 backdrop-blur-sm mx-auto"
           >
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
             </span>
-            <span className="text-white font-semibold tracking-wide text-sm">
+            <span className="text-white font-semibold tracking-wide text-xs lg:text-sm">
               Live Shipment Tracking
             </span>
           </motion.div>
@@ -59,7 +59,7 @@ export default function TrackingHero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, type: "spring" }}
-            className="text-5xl lg:text-7xl font-bold !text-white tracking-tight mb-6 leading-[1.1]"
+            className="text-4xl lg:text-5xl xl:text-7xl font-bold !text-white tracking-tight mb-4 lg:mb-6 leading-[1.1]"
           >
             Monitor Your Cargo <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-blue-400">
@@ -72,7 +72,7 @@ export default function TrackingHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-gray-200 mb-10 leading-relaxed max-w-2xl mx-auto"
+            className="text-base lg:text-xl text-gray-200 mb-8 lg:mb-10 leading-relaxed max-w-2xl mx-auto"
           >
             Stay informed with precise location updates and estimated delivery
             times. Our advanced tracking network ensures you never lose sight of
@@ -95,14 +95,14 @@ export default function TrackingHero() {
                   onChange={(e) => setTrackingId(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleTrack()}
                   placeholder="Enter Tracking ID (e.g., LGC-123456789)"
-                  className="flex-1 bg-transparent border-none outline-none text-primary placeholder:text-gray-400 font-medium"
+                  className="flex-1 bg-transparent py-4 border-none outline-none text-primary placeholder:text-gray-400 font-medium"
                   disabled={isLoading}
                 />
               </div>
               <button
                 onClick={handleTrack}
                 disabled={isLoading}
-                className="w-full sm:w-auto px-8 h-14 bg-secondary text-white rounded-xl flex items-center justify-center gap-2 hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 font-semibold group cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed min-w-[160px]"
+                className="w-full sm:w-auto px-8 h-14 bg-secondary text-white rounded-xl flex items-center justify-center gap-2 hover:bg-secondary/90 active:bg-secondary/90 active:scale-95 transition-all shadow-lg shadow-secondary/20 font-semibold group cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed min-w-[160px]"
               >
                 {isLoading ? (
                   <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -160,7 +160,7 @@ export default function TrackingHero() {
                     transition: { type: "spring", stiffness: 100 },
                   },
                 }}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-2xl text-left hover:bg-white/10 transition-colors"
+                className="bg-white/5 backdrop-blur-sm border border-white/10 p-4 md:p-6 rounded-2xl text-left hover:bg-white/10 transition-colors"
               >
                 <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center mb-4">
                   <feature.icon className="w-5 h-5 text-secondary" />

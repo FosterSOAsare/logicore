@@ -17,6 +17,10 @@
   --font-heading: var(--font-body);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);

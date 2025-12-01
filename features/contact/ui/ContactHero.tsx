@@ -36,8 +36,8 @@ export default function ContactHero() {
             <span className="text-secondary">Help You</span>
           </h1>
           <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
-            Have a question about our services or need a custom quote? Our team
-            is ready to assist you 24/7.
+            Have a question about our services or need assistance with your
+            shipment? Our team is ready to assist you 24/7.
           </p>
         </motion.div>
       </div>

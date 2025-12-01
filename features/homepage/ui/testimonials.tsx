@@ -36,9 +36,9 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-white border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+    <section className="py-12 lg:py-24 bg-white border-t border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export default function Testimonials() {
                 Testimonials
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mt-3 mb-6 tracking-tight">
+            <h2 className="text-3xl lg:text-4xl md:text-5xl font-bold text-primary mt-3 mb-6 tracking-tight">
               Trusted by Industry <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                 Leaders Worldwide
@@ -68,7 +68,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-50 p-8 rounded-3xl relative"
+              className="bg-gray-50 p-4 md:p-8 rounded-3xl relative"
             >
               <Quote className="w-10 h-10 text-secondary/20 mb-6" />
 

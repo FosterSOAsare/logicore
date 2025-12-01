@@ -27,9 +27,9 @@ const features = [
 
 export default function WhyUs() {
   return (
-    <section className="py-24 bg-white overflow-hidden border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="py-12 lg:py-24 bg-white overflow-hidden border-t border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content Side */}
           <div>
             {/* Badge */}
@@ -52,7 +52,7 @@ export default function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-5xl font-bold text-primary mt-3 mb-8 tracking-tight leading-tight"
+              className="text-3xl lg:text-4xl md:text-5xl font-bold text-primary mt-3 mb-6 lg:mb-8 tracking-tight leading-tight"
             >
               We Deliver Certainty in an <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
@@ -66,7 +66,7 @@ export default function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-muted text-lg leading-relaxed mb-10"
+              className="text-muted text-base lg:text-lg leading-relaxed mb-8 lg:mb-10"
             >
               In the complex world of global logistics, you need a partner who
               anticipates challenges before they happen. We combine decades of
@@ -82,7 +82,7 @@ export default function WhyUs() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  className="flex gap-4"
+                  className="flex  gap-4"
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-secondary">
                     <feature.icon className="w-6 h-6" />
@@ -108,7 +108,7 @@ export default function WhyUs() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-square">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[3/3] md:aspect-[4/5] lg:aspect-square">
               <Image
                 src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
                 alt="Modern Logistics Warehouse"

@@ -5,13 +5,16 @@ import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 
 export default function Contact() {
   return (
-    <section className="py-24 bg-gray-50 relative overflow-hidden">
+    <section
+      id="quote"
+      className="py-12 lg:py-24 bg-gray-50 relative overflow-hidden"
+    >
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-100/50 skew-x-12 translate-x-20" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text Content */}
           <div>
             {/* Badge */}
@@ -34,7 +37,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-5xl font-bold text-primary mt-3 mb-6 tracking-tight"
+              className="text-3xl lg:text-4xl md:text-5xl font-bold text-primary mt-3 mb-6 tracking-tight"
             >
               Ready to Streamline <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
@@ -48,7 +51,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-muted text-lg leading-relaxed mb-10 max-w-lg"
+              className="text-muted text-base lg:text-lg leading-relaxed mb-8 lg:mb-10 max-w-lg"
             >
               Contact our team of logistics experts to discuss your shipping
               needs. We provide tailored solutions for businesses of all sizes.
@@ -124,7 +127,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white rounded-3xl p-8 md:p-10 shadow-xl shadow-gray-200/50 border border-gray-100"
+            className="bg-white rounded-3xl p-4 md:p-8 shadow-xl shadow-gray-200/50 border border-gray-100"
           >
             <h3 className="text-2xl font-bold text-primary mb-2">
               Request a Quick Quote
@@ -173,7 +176,7 @@ export default function Contact() {
                 <label className="text-sm font-medium text-gray-700">
                   Shipping Requirements
                 </label>
-                <select className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-600">
+                <select className="w-full px-4 appearance-none py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-600">
                   <option>Select Freight Type</option>
                   <option>Air Freight</option>
                   <option>Ocean Freight</option>
@@ -195,7 +198,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all flex items-center justify-center gap-2 group"
+                className="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 active:bg-primary/90 active:scale-95 transition-all flex items-center justify-center gap-2 group"
               >
                 Get Free Quote
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

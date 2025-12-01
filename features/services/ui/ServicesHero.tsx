@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function ServicesHero() {
   return (
-    <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-primary">
+    <section className="relative pt-24 pb-16 lg:pt-48 lg:pb-32 overflow-hidden bg-primary">
       {/* Background Image */}
       <div className="absolute inset-0 opacity-60">
         <Image
@@ -21,13 +21,13 @@ export default function ServicesHero() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, type: "spring", stiffness: 200 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 shadow-sm mb-8 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 shadow-sm mb-6 lg:mb-8 backdrop-blur-sm"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
             <span className="text-white font-semibold tracking-wide uppercase text-xs">
@@ -39,7 +39,7 @@ export default function ServicesHero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, type: "spring" }}
-            className="text-5xl md:text-7xl font-bold !text-white mb-8 tracking-tight leading-[1.1]"
+            className="text-4xl md:text-5xl lg:text-7xl font-bold !text-white mb-6 lg:mb-8 tracking-tight leading-[1.1]"
           >
             Logistics Solutions <br />
             <span className="text-secondary">Engineered for Growth</span>
@@ -49,7 +49,7 @@ export default function ServicesHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-gray-300 leading-relaxed max-w-2xl"
+            className="text-base lg:text-xl text-gray-300 leading-relaxed max-w-2xl"
           >
             From complex global supply chains to urgent last-mile deliveries, we
             provide the infrastructure and expertise to keep your business

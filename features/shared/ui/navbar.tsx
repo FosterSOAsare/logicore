@@ -29,8 +29,10 @@ export default function Navbar() {
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-gray-100 py-4"
-          : "bg-transparent py-6"
+          ? `bg-white/90 backdrop-blur-md border-b border-gray-100 ${
+              isOpen ? "pt-4" : "py-4"
+            }`
+          : `${pathname === "/" ? "bg-primary" : "bg-transparent"} py-4`
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -60,16 +62,18 @@ export default function Navbar() {
                     scrolled
                       ? active
                         ? "text-secondary"
-                        : "text-gray-600 hover:text-primary"
+                        : "text-gray-600 hover:text-primary active:text-primary"
                       : active
                       ? "text-secondary"
-                      : "text-white/90 hover:text-white"
+                      : "text-white/90 hover:text-white active:text-white"
                   }`}
                 >
                   {item}
                   <span
                     className={`absolute -bottom-1 left-0 h-0.5 bg-secondary transition-all duration-300 ${
-                      active ? "w-full" : "w-0 group-hover:w-full"
+                      active
+                        ? "w-full"
+                        : "w-0 group-hover:w-full group-active:w-full"
                     }`}
                   />
                 </Link>
@@ -81,7 +85,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <Link
               href="/contact"
-              className="group px-6 py-2.5 bg-secondary text-white text-sm font-medium rounded-full hover:bg-secondary/90 transition-all flex items-center gap-2"
+              className="group px-6 py-2.5 bg-secondary text-white text-sm font-medium rounded-full hover:bg-secondary/90 active:bg-secondary/90 active:scale-95 transition-all flex items-center gap-2"
             >
               Contact Us
               <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -109,19 +113,25 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-gray-100 overflow-hidden"
+            className="md:hidden bg-white border-b mt-8 border-gray-100 overflow-hidden"
           >
             <div className="px-6 py-8 space-y-4">
-              {["Home", "Services", "Tracking", "Company"].map((item) => (
-                <Link
-                  key={item}
-                  href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                  className="block text-lg font-medium text-gray-600 hover:text-primary"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item}
-                </Link>
-              ))}
+              {["Home", "Services", "Tracking", "Company"].map((item) => {
+                const path = item === "Home" ? "/" : `/${item.toLowerCase()}`;
+                const active = isActive(path);
+                return (
+                  <Link
+                    key={item}
+                    href={path}
+                    className={`block text-lg font-medium ${
+                      active ? "text-secondary" : "text-gray-600"
+                    } hover:text-primary`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item}
+                  </Link>
+                );
+              })}
               <div className="pt-4">
                 <Link
                   href="/contact"
