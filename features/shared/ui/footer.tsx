@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Facebook,
   Twitter,
@@ -10,6 +13,30 @@ import {
 } from "lucide-react";
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  const isActive = (path: string) => {
+    if (path === "/" && pathname === "/") return true;
+    if (path !== "/" && pathname.startsWith(path)) return true;
+    return false;
+  };
+
+  const quickLinks = [
+    { name: "About Us", href: "/company" },
+    { name: "Our Services", href: "/services" },
+    { name: "Track Shipment", href: "/tracking" },
+    { name: "News & Media", href: "/news" },
+    { name: "Careers", href: "/careers" },
+  ];
+
+  const servicesLinks = [
+    { name: "Air Freight", href: "/services/air-freight" },
+    { name: "Ocean Freight", href: "/services/ocean-freight" },
+    { name: "Land Transport", href: "/services/land-transport" },
+    { name: "Warehousing", href: "/services/warehousing" },
+    { name: "Customs Brokerage", href: "/services/customs-brokerage" },
+  ];
+
   return (
     <footer className="bg-primary text-white pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -44,20 +71,24 @@ export default function Footer() {
           <div className="">
             <h3 className="text-lg !text-white font-bold mb-6">Quick Links</h3>
             <ul className="space-y-4">
-              {[
-                "About Us",
-                "Our Services",
-                "Track Shipment",
-                "News & Media",
-                "Careers",
-              ].map((item) => (
-                <li key={item}>
+              {quickLinks.map((item) => (
+                <li key={item.name}>
                   <Link
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group"
+                    href={item.href}
+                    className={`transition-colors flex items-center gap-2 group ${
+                      isActive(item.href)
+                        ? "text-secondary"
+                        : "text-gray-400 hover:text-white"
+                    }`}
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-secondary group-hover:bg-secondary transition-colors" />
-                    {item}
+                    <span
+                      className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                        isActive(item.href)
+                          ? "bg-secondary"
+                          : "bg-gray-600 group-hover:bg-secondary"
+                      }`}
+                    />
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -68,20 +99,24 @@ export default function Footer() {
           <div>
             <h3 className="text-lg !text-white font-bold mb-6">Services</h3>
             <ul className="space-y-4">
-              {[
-                "Air Freight",
-                "Ocean Freight",
-                "Land Transport",
-                "Warehousing",
-                "Customs Brokerage",
-              ].map((item) => (
-                <li key={item}>
+              {servicesLinks.map((item) => (
+                <li key={item.name}>
                   <Link
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group"
+                    href={item.href}
+                    className={`transition-colors flex items-center gap-2 group ${
+                      isActive(item.href)
+                        ? "text-secondary"
+                        : "text-gray-400 hover:text-white"
+                    }`}
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-secondary group-hover:bg-secondary transition-colors" />
-                    {item}
+                    <span
+                      className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                        isActive(item.href)
+                          ? "bg-secondary"
+                          : "bg-gray-600 group-hover:bg-secondary"
+                      }`}
+                    />
+                    {item.name}
                   </Link>
                 </li>
               ))}

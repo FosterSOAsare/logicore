@@ -1,13 +1,15 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Menu, X, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Menu, X, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +18,12 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isActive = (path: string) => {
+    if (path === "/" && pathname === "/") return true;
+    if (path !== "/" && pathname.startsWith(path)) return true;
+    return false;
+  };
 
   return (
     <nav
@@ -30,7 +38,9 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="text-2xl font-bold text-primary tracking-tighter flex items-center gap-1"
+            className={`text-2xl font-bold tracking-tighter flex items-center gap-1 ${
+              scrolled ? "text-primary" : "text-white"
+            }`}
           >
             LOGICORE
             <div className="w-2 h-2 rounded-full bg-secondary mb-1" />
@@ -38,16 +48,33 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {["Home", "Services", "Tracking", "Company"].map((item) => (
-              <Link
-                key={item}
-                href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                className="text-sm font-medium text-gray-600 hover:text-primary transition-colors relative group"
-              >
-                {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full" />
-              </Link>
-            ))}
+            {["Home", "Services", "Tracking", "Company"].map((item) => {
+              const path = item === "Home" ? "/" : `/${item.toLowerCase()}`;
+              const active = isActive(path);
+
+              return (
+                <Link
+                  key={item}
+                  href={path}
+                  className={`text-sm font-medium transition-colors relative group ${
+                    scrolled
+                      ? active
+                        ? "text-secondary"
+                        : "text-gray-600 hover:text-primary"
+                      : active
+                      ? "text-secondary"
+                      : "text-white/90 hover:text-white"
+                  }`}
+                >
+                  {item}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-secondary transition-all duration-300 ${
+                      active ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
           </div>
 
           {/* CTA Button */}
@@ -65,7 +92,9 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-gray-600 hover:text-primary"
+              className={`p-2 hover:text-primary ${
+                scrolled ? "text-gray-600" : "text-white"
+              }`}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
