@@ -64,16 +64,16 @@ export default function CompanyStory() {
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Image Grid */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative"
-          >
+          <div className="relative">
             <div className="grid grid-cols-2 gap-4">
               {/* Main Large Image */}
-              <div className="col-span-2 relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-xl">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="col-span-2 relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-xl"
+              >
                 <Image
                   src="/company-story.png"
                   alt="Our Team"
@@ -87,10 +87,16 @@ export default function CompanyStory() {
                   <p className="text-3xl font-bold text-secondary">15+</p>
                   <p className="text-sm text-gray-600 font-medium">Years</p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Two Small Images Side by Side */}
-              <div className="relative h-[180px] md:h-[200px] rounded-2xl overflow-hidden shadow-lg">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="relative h-[180px] md:h-[200px] rounded-2xl overflow-hidden shadow-lg"
+              >
                 <Image
                   src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop"
                   alt="Team Collaboration"
@@ -98,9 +104,15 @@ export default function CompanyStory() {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-primary/20" />
-              </div>
+              </motion.div>
 
-              <div className="relative h-[180px] md:h-[200px] rounded-2xl overflow-hidden shadow-lg">
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="relative h-[180px] md:h-[200px] rounded-2xl overflow-hidden shadow-lg"
+              >
                 <Image
                   src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop"
                   alt="Global Operations"
@@ -108,9 +120,9 @@ export default function CompanyStory() {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-secondary/20" />
-              </div>
+              </motion.div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Content */}
           <div className="space-y-8">
