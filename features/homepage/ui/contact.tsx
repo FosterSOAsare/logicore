@@ -66,8 +66,8 @@ export default function Contact() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="flex items-start gap-4 group"
               >
-                <div className="w-12 h-12 rounded-xl bg-white shadow-sm border border-gray-100 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
-                  <Phone className="w-5 h-5" />
+                <div className="w-10 md:w-12 h-10 md:h-12 rounded-xl bg-white shadow-sm border border-gray-100 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
+                  <Phone className="w-4 md:w-6 h-4 md:h-6" />
                 </div>
                 <div>
                   <h3 className="font-bold text-primary text-lg">
@@ -87,11 +87,13 @@ export default function Contact() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="flex items-start gap-4 group"
               >
-                <div className="w-12 h-12 rounded-xl bg-white shadow-sm border border-gray-100 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
-                  <Mail className="w-5 h-5" />
+                <div className="w-10 md:w-12 h-10 md:h-12 rounded-xl bg-white shadow-sm border border-gray-100 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
+                  <Mail className="w-4 md:w-6 h-4 md:h-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-primary text-lg">Email Us</h3>
+                  <h3 className="font-bold text-primary text-lg md:text-xl">
+                    Email Us
+                  </h3>
                   <p className="text-muted">contact@logicore.com</p>
                   <p className="text-sm text-gray-400 mt-1">
                     We respond within 2 hours
@@ -106,11 +108,13 @@ export default function Contact() {
                 transition={{ duration: 0.5, delay: 0.5 }}
                 className="flex items-start gap-4 group"
               >
-                <div className="w-12 h-12 rounded-xl bg-white shadow-sm border border-gray-100 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
-                  <MapPin className="w-5 h-5" />
+                <div className="w-10 md:w-12 h-10 md:h-12 rounded-xl bg-white shadow-sm border border-gray-100 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
+                  <MapPin className="w-4 md:w-6 h-4 md:h-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-primary text-lg">Global HQ</h3>
+                  <h3 className="font-bold text-primary text-lg md:text-xl">
+                    Global HQ
+                  </h3>
                   <p className="text-muted">
                     123 Logistics Avenue, Business Park
                     <br />

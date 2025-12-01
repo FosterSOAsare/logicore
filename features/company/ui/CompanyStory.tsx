@@ -2,77 +2,200 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Award, Users, Globe2 } from "lucide-react";
 
 export default function CompanyStory() {
+  const milestones = [
+    { year: "2010", label: "Founded", icon: Award },
+    { year: "10K+", label: "Clients Served", icon: Users },
+    { year: "150+", label: "Countries", icon: Globe2 },
+  ];
+
   return (
-    <section className="py-8 md:py-12 lg:py-24 bg-white overflow-hidden">
+    <section className="py-12 lg:py-24 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-16 items-center">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary font-semibold text-sm mb-6"
+          >
+            <span className="w-2 h-2 rounded-full bg-secondary" />
+            Our Journey
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6"
+          >
+            Building Excellence in{" "}
+            <span className="text-secondary">Global Logistics</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-gray-500"
+          >
+            From a small operation to a global powerhouse, our story is one of
+            innovation, dedication, and relentless pursuit of excellence.
+          </motion.p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+          {/* Image Grid */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="relative h-[300px] md:h-[400px] lg:h-[600px] w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src="https://images.unsplash.com/photo-1524522173746-f628baad3644?q=80&w=2131&auto=format&fit=crop"
-                alt="Journey to Excellence"
-                fill
-                className="object-cover"
-              />
+            <div className="grid grid-cols-2 gap-4">
+              {/* Main Large Image */}
+              <div className="col-span-2 relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/company-story.png"
+                  alt="Our Team"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
+
+                {/* Floating Badge on Image */}
+                <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg">
+                  <p className="text-3xl font-bold text-secondary">15+</p>
+                  <p className="text-sm text-gray-600 font-medium">Years</p>
+                </div>
+              </div>
+
+              {/* Two Small Images Side by Side */}
+              <div className="relative h-[180px] md:h-[200px] rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop"
+                  alt="Team Collaboration"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-primary/20" />
+              </div>
+
+              <div className="relative h-[180px] md:h-[200px] rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop"
+                  alt="Global Operations"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-secondary/20" />
+              </div>
             </div>
-            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-secondary/10 rounded-full blur-3xl -z-10" />
-            <div className="absolute -top-10 -left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10" />
           </motion.div>
 
-          <div>
-            <motion.h2
+          {/* Content */}
+          <div className="space-y-8">
+            <div className="space-y-6">
+              <div>
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="text-2xl font-bold text-primary mb-4"
+                >
+                  From Humble Beginnings
+                </motion.h3>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="text-gray-500 leading-relaxed"
+                >
+                  Founded in 2010, Logicore started as a small freight
+                  forwarding operation with just five employees. Today, we serve
+                  thousands of clients across six continents, transforming how
+                  businesses approach global logistics.
+                </motion.p>
+              </div>
+
+              <div>
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                  className="text-2xl font-bold text-primary mb-4"
+                >
+                  Driven by Innovation
+                </motion.h3>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
+                  className="text-gray-500 leading-relaxed"
+                >
+                  We combine traditional reliability with cutting-edge
+                  technology. From AI-powered route optimization to real-time
+                  tracking systems, we deliver the most efficient and
+                  transparent logistics solutions in the industry.
+                </motion.p>
+              </div>
+
+              <div>
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 }}
+                  className="text-2xl font-bold text-primary mb-4"
+                >
+                  Building the Future
+                </motion.h3>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.7 }}
+                  className="text-gray-500 leading-relaxed"
+                >
+                  Our mission is to redefine what's possible in global logistics
+                  through sustainable practices, network expansion, and
+                  exceptional service that exceeds expectations.
+                </motion.p>
+              </div>
+            </div>
+
+            {/* Milestones */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-3xl lg:text-4xl font-bold text-primary mb-6"
+              transition={{ delay: 0.8 }}
+              className="grid grid-cols-3 gap-4 pt-6 border-t border-gray-200"
             >
-              Our Journey to <br />
-              <span className="text-secondary">Excellence</span>
-            </motion.h2>
-            <div className="space-y-6 text-base lg:text-lg text-gray-500 leading-relaxed">
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                Founded in 2010, Logicore began with a simple mission: to
-                simplify global trade. What started as a small freight
-                forwarding operation has grown into a comprehensive logistics
-                powerhouse, serving clients in over 150 countries.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                We believe that logistics is more than just moving goods; it's
-                about connecting people, businesses, and economies. Our
-                commitment to innovation and customer satisfaction has driven us
-                to develop cutting-edge technology and build a robust global
-                network.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                Today, we continue to push the boundaries of what's possible in
-                supply chain management, leveraging AI and data analytics to
-                provide smarter, faster, and more sustainable solutions.
-              </motion.p>
-            </div>
+              {milestones.map((milestone, index) => (
+                <div key={index} className="text-center">
+                  <div className="w-12 h-12 mx-auto mb-3 bg-secondary/10 rounded-xl flex items-center justify-center">
+                    <milestone.icon className="w-6 h-6 text-secondary" />
+                  </div>
+                  <p className="text-2xl md:text-3xl font-bold text-primary mb-1">
+                    {milestone.year}
+                  </p>
+                  <p className="text-xs md:text-sm text-gray-500 font-medium">
+                    {milestone.label}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </div>

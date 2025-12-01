@@ -32,7 +32,7 @@ export default function Navbar() {
           ? `bg-white/90 backdrop-blur-md border-b border-gray-100 ${
               isOpen ? "pt-4" : "py-4"
             }`
-          : `${pathname === "/" ? "bg-primary" : "bg-transparent"} py-4`
+          : `bg-transparent py-4`
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">

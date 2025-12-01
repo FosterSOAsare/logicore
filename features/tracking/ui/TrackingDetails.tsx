@@ -147,7 +147,7 @@ export default function TrackingDetails({
               </div>
 
               {/* Icon-Based Progress Visualization */}
-              <div className="relative mb-8 lg:mb-12 mt-8">
+              <div className="relative mb-8 lg:mb-12 mt-4">
                 <div className="absolute top-5 left-0 w-full h-1 bg-gray-100 rounded-full" />
                 <div
                   className="absolute top-5 left-0 h-1 bg-secondary rounded-full transition-all duration-1000"
@@ -165,10 +165,10 @@ export default function TrackingDetails({
                     return (
                       <div
                         key={step.label}
-                        className="flex flex-col items-center gap-3"
+                        className="flex flex-col bg- items-center gap-2"
                       >
                         <div
-                          className={`w-8 h-8 lg:w-10 lg:h-10 rounded-full border-[3px] z-10 flex items-center justify-center transition-all duration-500 ${
+                          className={`w-8 h-8 lg:w-10 lg:h-10 mt-2 md:mt-0 rounded-full border-[3px] z-10 flex items-center justify-center transition-all duration-500 ${
                             isCompleted || isCurrent
                               ? "bg-secondary border-secondary text-white shadow-lg shadow-secondary/20"
                               : "bg-white border-gray-200 text-gray-300"
