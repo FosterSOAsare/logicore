@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Contact Inquiry - LogiCore</title>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        'Helvetica Neue', Arial, sans-serif;
+      background-color: #f1f5f9;
+      line-height: 1.6;
+    "
+  >
+    <table
+      role="presentation"
+      style="width: 100%; border-collapse: collapse; background-color: #f1f5f9"
+    >
+      <tr>
+        <td style="padding: 20px 15px">
+          <table
+            role="presentation"
+            style="
+              max-width: 600px;
+              margin: 0 auto;
+              background-color: #ffffff;
+              border: 1px solid #e2e8f0;
+            "
+          >
+            <!-- Header -->
+            <tr>
+              <td
+                style="
+                  background-color: #0f172a;
+                  padding: 30px 25px;
+                  text-align: center;
+                  border-bottom: 4px solid #0ea5e9;
+                "
+              >
+                <h1
+                  style="
+                    margin: 0;
+                    color: #ffffff;
+                    font-size: 26px;
+                    font-weight: bold;
+                    letter-spacing: 1px;
+                  "
+                >
+                  LOGICORE
+                </h1>
+                <p
+                  style="
+                    margin: 8px 0 0 0;
+                    color: #94a3b8;
+                    font-size: 12px;
+                    letter-spacing: 0.5px;
+                    text-transform: uppercase;
+                  "
+                >
+                  Global Logistics Partner
+                </p>
+              </td>
+            </tr>
+
+            <!-- Banner -->
+            <tr>
+              <td
+                style="
+                  background-color: #0ea5e9;
+                  padding: 20px 25px;
+                  border-bottom: 2px solid #0284c7;
+                "
+              >
+                <h2
+                  style="
+                    margin: 0;
+                    color: #ffffff;
+                    font-size: 19px;
+                    font-weight: bold;
+                    letter-spacing: 0.3px;
+                  "
+                >
+                  📧 NEW CONTACT INQUIRY
+                </h2>
+                <p style="margin: 6px 0 0 0; color: #e0f2fe; font-size: 13px">
+                  A customer has submitted a contact form
+                </p>
+              </td>
+            </tr>
+
+            <!-- Content -->
+            <tr>
+              <td style="padding: 30px 25px">
+                <!-- Contact Details Section -->
+                <table
+                  role="presentation"
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 25px;
+                  "
+                >
+                  <tr>
+                    <td
+                      style="
+                        padding: 0 0 15px 0;
+                        border-bottom: 3px solid #0f172a;
+                      "
+                    >
+                      <h3
+                        style="
+                          margin: 0;
+                          color: #0f172a;
+                          font-size: 14px;
+                          font-weight: bold;
+                          text-transform: uppercase;
+                          letter-spacing: 1px;
+                        "
+                      >
+                        Contact Information
+                      </h3>
+                    </td>
+                  </tr>
+                </table>
+
+                <table
+                  role="presentation"
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    border: 2px solid #e2e8f0;
+                    margin-bottom: 30px;
+                  "
+                >
+                  <tr>
+                    <td
+                      style="
+                        padding: 15px 20px;
+                        background-color: #f8fafc;
+                        border-bottom: 1px solid #e2e8f0;
+                      "
+                    >
+                      <strong
+                        style="
+                          color: #64748b;
+                          font-size: 11px;
+                          text-transform: uppercase;
+                          letter-spacing: 0.5px;
+                          display: block;
+                          margin-bottom: 6px;
+                        "
+                        >Full Name</strong
+                      >
+                      <p
+                        style="
+                          margin: 0;
+                          color: #0f172a;
+                          font-size: 15px;
+                          font-weight: 600;
+                        "
+                      >
+                        {{firstName}} {{lastName}}
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="
+                        padding: 15px 20px;
+                        background-color: #ffffff;
+                        border-bottom: 1px solid #e2e8f0;
+                      "
+                    >
+                      <strong
+                        style="
+                          color: #64748b;
+                          font-size: 11px;
+                          text-transform: uppercase;
+                          letter-spacing: 0.5px;
+                          display: block;
+                          margin-bottom: 6px;
+                        "
+                        >Email Address</strong
+                      >
+                      <p style="margin: 0; color: #0f172a; font-size: 15px">
+                        <a
+                          href="mailto:{{email}}"
+                          style="
+                            color: #0ea5e9;
+                            text-decoration: none;
+                            font-weight: 500;
+                          "
+                          >{{email}}</a
+                        >
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 15px 20px; background-color: #f8fafc">
+                      <strong
+                        style="
+                          color: #64748b;
+                          font-size: 11px;
+                          text-transform: uppercase;
+                          letter-spacing: 0.5px;
+                          display: block;
+                          margin-bottom: 6px;
+                        "
+                        >Subject</strong
+                      >
+                      <p style="margin: 0">
+                        <span
+                          style="
+                            background-color: #0ea5e9;
+                            color: #ffffff;
+                            padding: 6px 14px;
+                            font-weight: 600;
+                            font-size: 13px;
+                            display: inline-block;
+                          "
+                          >{{subject}}</span
+                        >
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Message Section -->
+                <table
+                  role="presentation"
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 25px;
+                  "
+                >
+                  <tr>
+                    <td
+                      style="
+                        padding: 0 0 15px 0;
+                        border-bottom: 3px solid #0f172a;
+                      "
+                    >
+                      <h3
+                        style="
+                          margin: 0;
+                          color: #0f172a;
+                          font-size: 14px;
+                          font-weight: bold;
+                          text-transform: uppercase;
+                          letter-spacing: 1px;
+                        "
+                      >
+                        Message Content
+                      </h3>
+                    </td>
+                  </tr>
+                </table>
+
+                <table
+                  role="presentation"
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 25px;
+                  "
+                >
+                  <tr>
+                    <td
+                      style="
+                        background-color: #f8fafc;
+                        border-left: 5px solid #0f172a;
+                        padding: 20px;
+                        border: 1px solid #e2e8f0;
+                        border-left-width: 5px;
+                      "
+                    >
+                      <p
+                        style="
+                          margin: 0;
+                          color: #475569;
+                          font-size: 14px;
+                          line-height: 1.8;
+                          white-space: pre-wrap;
+                        "
+                      >{{message}}
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Subject-specific alerts -->
+                {{#if isTrackingInquiry}}
+                <table
+                  role="presentation"
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 20px;
+                  "
+                >
+                  <tr>
+                    <td
+                      style="
+                        background-color: #dbeafe;
+                        border-left: 5px solid #0ea5e9;
+                        padding: 15px;
+                        border: 1px solid #0ea5e9;
+                        border-left-width: 5px;
+                      "
+                    >
+                      <p
+                        style="
+                          margin: 0;
+                          color: #1e40af;
+                          font-size: 13px;
+                          font-weight: 500;
+                        "
+                      >
+                        <strong>📦 TRACKING INQUIRY:</strong> Customer may need
+                        help locating their shipment. Check tracking system for
+                        reference.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+                {{/if}} {{#if isPartnershipInquiry}}
+                <table
+                  role="presentation"
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 20px;
+                  "
+                >
+                  <tr>
+                    <td
+                      style="
+                        background-color: #e0e7ff;
+                        border-left: 5px solid #6366f1;
+                        padding: 15px;
+                        border: 1px solid #6366f1;
+                        border-left-width: 5px;
+                      "
+                    >
+                      <p
+                        style="
+                          margin: 0;
+                          color: #3730a3;
+                          font-size: 13px;
+                          font-weight: 500;
+                        "
+                      >
+                        <strong>🤝 PARTNERSHIP INQUIRY:</strong> Route to
+                        business development team for strategic opportunities.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+                {{/if}} {{#if isBillingInquiry}}
+                <table
+                  role="presentation"
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 20px;
+                  "
+                >
+                  <tr>
+                    <td
+                      style="
+                        background-color: #fef3c7;
+                        border-left: 5px solid #f59e0b;
+                        padding: 15px;
+                        border: 1px solid #f59e0b;
+                        border-left-width: 5px;
+                      "
+                    >
+                      <p
+                        style="
+                          margin: 0;
+                          color: #78350f;
+                          font-size: 13px;
+                          font-weight: 500;
+                        "
+                      >
+                        <strong>💳 BILLING INQUIRY:</strong> Route to finance
+                        department. Priority response required.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+                {{/if}} {{#if isIssueReport}}
+                <table
+                  role="presentation"
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 20px;
+                  "
+                >
+                  <tr>
+                    <td
+                      style="
+                        background-color: #fee2e2;
+                        border-left: 5px solid #ef4444;
+                        padding: 15px;
+                        border: 1px solid #ef4444;
+                        border-left-width: 5px;
+                      "
+                    >
+                      <p
+                        style="
+                          margin: 0;
+                          color: #7f1d1d;
+                          font-size: 13px;
+                          font-weight: 500;
+                        "
+                      >
+                        <strong>⚠️ ISSUE REPORT:</strong> Urgent attention
+                        required. Escalate to customer service manager.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+                {{/if}} {{#if isCareerInquiry}}
+                <table
+                  role="presentation"
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 20px;
+                  "
+                >
+                  <tr>
+                    <td
+                      style="
+                        background-color: #dcfce7;
+                        border-left: 5px solid #22c55e;
+                        padding: 15px;
+                        border: 1px solid #22c55e;
+                        border-left-width: 5px;
+                      "
+                    >
+                      <p
+                        style="
+                          margin: 0;
+                          color: #14532d;
+                          font-size: 13px;
+                          font-weight: 500;
+                        "
+                      >
+                        <strong>💼 CAREER INQUIRY:</strong> Forward to HR
+                        department for recruitment opportunities.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+                {{/if}}
+
+                <!-- Response Time Alert -->
+                <table
+                  role="presentation"
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 25px;
+                  "
+                >
+                  <tr>
+                    <td
+                      style="
+                        background-color: #fef3c7;
+                        border: 2px solid #f59e0b;
+                        border-left-width: 5px;
+                        padding: 15px;
+                      "
+                    >
+                      <p
+                        style="
+                          margin: 0;
+                          color: #78350f;
+                          font-size: 13px;
+                          font-weight: 600;
+                          text-transform: uppercase;
+                          letter-spacing: 0.3px;
+                        "
+                      >
+                        ⏰ RESPONSE TIME: Please respond within 2 hours during
+                        business hours.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- CTA Button -->
+                <table
+                  role="presentation"
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-top: 25px;
+                  "
+                >
+                  <tr>
+                    <td style="text-align: center; padding: 10px 0">
+                      <a
+                        href="mailto:{{email}}?subject=Re: {{subject}} - LogiCore Logistics"
+                        style="
+                          display: inline-block;
+                          background-color: #0f172a;
+                          color: #ffffff;
+                          text-decoration: none;
+                          padding: 16px 40px;
+                          font-weight: bold;
+                          font-size: 14px;
+                          letter-spacing: 0.5px;
+                          border: 3px solid #0ea5e9;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Reply to Customer
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td
+                style="
+                  background-color: #0f172a;
+                  padding: 25px;
+                  text-align: center;
+                  border-top: 4px solid #0ea5e9;
+                "
+              >
+                <p style="margin: 0 0 8px 0; color: #94a3b8; font-size: 12px">
+                  This email was sent from your LogiCore website contact form
+                </p>
+                <p style="margin: 0; color: #64748b; font-size: 11px">
+                  © 2025 LogiCore Logistics. All rights reserved.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

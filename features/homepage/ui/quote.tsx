@@ -2,8 +2,51 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { quoteFormSchema, QuoteFormData } from "../schema";
+import { submitQuoteForm } from "../actions";
+import { useState } from "react";
 
-export default function Contact() {
+export default function Quote() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<QuoteFormData>({
+    resolver: zodResolver(quoteFormSchema),
+  });
+
+  const onSubmit = async (data: QuoteFormData) => {
+    setIsSubmitting(true);
+    setSubmitMessage(null);
+
+    try {
+      const result = await submitQuoteForm(data);
+
+      if (result.success) {
+        setSubmitMessage({ type: "success", text: result.message });
+        reset();
+      } else {
+        setSubmitMessage({ type: "error", text: result.message });
+      }
+    } catch (error) {
+      setSubmitMessage({
+        type: "error",
+        text: "An unexpected error occurred. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section
       id="quote"
@@ -121,7 +164,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Contact Form Card */}
+          {/* Quote Form Card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -137,7 +180,19 @@ export default function Contact() {
               competitive rate.
             </p>
 
-            <form className="space-y-5">
+            {submitMessage && (
+              <div
+                className={`mb-6 p-4 rounded-xl border ${
+                  submitMessage.type === "success"
+                    ? "bg-green-50 border-green-200 text-green-800"
+                    : "bg-red-50 border-red-200 text-red-800"
+                }`}
+              >
+                <p className="text-sm font-medium">{submitMessage.text}</p>
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               <div className="grid grid-cols-2 gap-5">
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-700">
@@ -146,8 +201,16 @@ export default function Contact() {
                   <input
                     type="text"
                     placeholder="John"
-                    className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all"
+                    {...register("firstName")}
+                    className={`w-full px-4 py-3 rounded-lg bg-gray-50 border ${
+                      errors.firstName ? "border-red-500" : "border-gray-200"
+                    } focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all`}
                   />
+                  {errors.firstName && (
+                    <p className="text-xs text-red-600">
+                      {errors.firstName.message}
+                    </p>
+                  )}
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-700">
@@ -156,8 +219,16 @@ export default function Contact() {
                   <input
                     type="text"
                     placeholder="Doe"
-                    className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all"
+                    {...register("lastName")}
+                    className={`w-full px-4 py-3 rounded-lg bg-gray-50 border ${
+                      errors.lastName ? "border-red-500" : "border-gray-200"
+                    } focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all`}
                   />
+                  {errors.lastName && (
+                    <p className="text-xs text-red-600">
+                      {errors.lastName.message}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -168,21 +239,39 @@ export default function Contact() {
                 <input
                   type="email"
                   placeholder="john@company.com"
-                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all"
+                  {...register("email")}
+                  className={`w-full px-4 py-3 rounded-lg bg-gray-50 border ${
+                    errors.email ? "border-red-500" : "border-gray-200"
+                  } focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all`}
                 />
+                {errors.email && (
+                  <p className="text-xs text-red-600">{errors.email.message}</p>
+                )}
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700">
                   Shipping Requirements
                 </label>
-                <select className="w-full px-4 appearance-none py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-600">
-                  <option>Select Freight Type</option>
-                  <option>Air Freight</option>
-                  <option>Ocean Freight</option>
-                  <option>Land Transport</option>
-                  <option>Warehousing</option>
+                <select
+                  {...register("shippingRequirements")}
+                  className={`w-full px-4 appearance-none py-3 rounded-lg bg-gray-50 border ${
+                    errors.shippingRequirements
+                      ? "border-red-500"
+                      : "border-gray-200"
+                  } focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-600`}
+                >
+                  <option value="">Select Freight Type</option>
+                  <option value="Air Freight">Air Freight</option>
+                  <option value="Ocean Freight">Ocean Freight</option>
+                  <option value="Land Transport">Land Transport</option>
+                  <option value="Warehousing">Warehousing</option>
                 </select>
+                {errors.shippingRequirements && (
+                  <p className="text-xs text-red-600">
+                    {errors.shippingRequirements.message}
+                  </p>
+                )}
               </div>
 
               <div className="space-y-2">
@@ -192,16 +281,34 @@ export default function Contact() {
                 <textarea
                   rows={3}
                   placeholder="Tell us about your cargo..."
-                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all resize-none"
+                  {...register("message")}
+                  className={`w-full px-4 py-3 rounded-lg bg-gray-50 border ${
+                    errors.message ? "border-red-500" : "border-gray-200"
+                  } focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all resize-none`}
                 />
+                {errors.message && (
+                  <p className="text-xs text-red-600">
+                    {errors.message.message}
+                  </p>
+                )}
               </div>
 
               <button
                 type="submit"
-                className="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 active:bg-primary/90 active:scale-95 transition-all flex items-center justify-center gap-2 group"
+                disabled={isSubmitting}
+                className="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 active:bg-primary/90 active:scale-95 transition-all flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Get Free Quote
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                {isSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    Submitting...
+                  </>
+                ) : (
+                  <>
+                    Get Free Quote
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
               </button>
             </form>
           </motion.div>

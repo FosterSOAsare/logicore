@@ -4,7 +4,7 @@ import Hero from "@/features/homepage/ui/hero";
 import Services from "@/features/homepage/ui/services";
 import WhyUs from "@/features/homepage/ui/why-us";
 import Testimonials from "@/features/homepage/ui/testimonials";
-import Contact from "@/features/homepage/ui/contact";
+import Quote from "@/features/homepage/ui/quote";
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
       <Services />
       <WhyUs />
       <Testimonials />
-      <Contact />
+      <Quote />
       <Footer />
     </main>
   );

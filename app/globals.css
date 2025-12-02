@@ -37,3 +37,25 @@ h6 {
   font-weight: bold;
   color: var(--color-primary);
 }
+
+/* Override browser autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  box-shadow: 0 0 0 1000px white inset !important;
+  -webkit-text-fill-color: #1e293b !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* For gray background inputs (Quote form) */
+input[class*="bg-gray-50"]:-webkit-autofill,
+input[class*="bg-gray-50"]:-webkit-autofill:hover,
+input[class*="bg-gray-50"]:-webkit-autofill:focus,
+input[class*="bg-gray-50"]:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #f9fafb inset !important;
+  box-shadow: 0 0 0 1000px #f9fafb inset !important;
+  -webkit-text-fill-color: #1e293b !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
