@@ -61,9 +61,7 @@ export async function getPackages({
       type: pkg.service,
       weight: pkg.details.weight,
       _id: pkg._id.toString(),
-      // Dynamically calculate progress if not explicitly set to 100
-      progress:
-        pkg.status === "Delivered" ? 100 : calculateProgress(pkg.status),
+      progress: pkg.progres,
     }));
   } catch (error) {
     console.error("Failed to fetch packages:", error);

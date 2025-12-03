@@ -69,13 +69,13 @@ export default function PackagesList({
   };
 
   return (
-    <div className="p-8 flex-1 overflow-y-auto">
+    <div className="p-4 md:p-8 flex-1 overflow-y-auto">
       {/* Filters Bar */}
       <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm mb-6 flex flex-col md:flex-row gap-4 justify-between items-center z-20 relative">
-        <div className="w-[calc(100%-16em)]">
+        <div className="w-full md:w-[calc(100%-16em)]">
           <Search placeholder="Search packages..." />
         </div>
-        <div className="flex items-center gap-3 w-full md:w-60">
+        <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
           <div className="flex bg-gray-100 p-1 rounded-lg">
             <button
               onClick={() => handleViewChange("list")}

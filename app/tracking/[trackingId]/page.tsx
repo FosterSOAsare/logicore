@@ -1,6 +1,8 @@
 import Navbar from "@/features/shared/ui/navbar";
 import Footer from "@/features/shared/ui/footer";
 import TrackingDetails from "@/features/tracking/ui/TrackingDetails";
+import { getPackageById } from "@/features/packages/actions";
+import { notFound } from "next/navigation";
 
 export default async function TrackingDetailsPage({
   params,
@@ -8,6 +10,12 @@ export default async function TrackingDetailsPage({
   params: Promise<{ trackingId: string }>;
 }) {
   const trackingId = (await params).trackingId;
+  const packageData = await getPackageById(trackingId);
+
+  if (!packageData) {
+    notFound();
+  }
+
   return (
     <main className="min-h-screen bg-gray-50">
       <Navbar />
@@ -26,7 +34,7 @@ export default async function TrackingDetailsPage({
       </section>
 
       <div className="-mt-12 md:-mt-20 relative z-20 pb-12 md:pb-24">
-        <TrackingDetails trackingId={trackingId} />
+        <TrackingDetails packageData={packageData} />
       </div>
       <Footer />
     </main>

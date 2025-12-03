@@ -23,12 +23,12 @@ import {
   Flag,
   CircleDot,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, progress } from "framer-motion";
 
 interface IRouteStop {
   id: string;
   location: string;
-  status: "Pending" | "In Transit" | "Cleared" | "Completed";
+  isActive?: boolean;
   date?: string;
   _id?: string;
 }
@@ -95,6 +95,20 @@ export default function PackageDetailsView({
             date: packageData.destination.date,
           },
         ];
+
+  const activeStopIndex =
+    packageData.plannedRoute?.findIndex((stop) => stop.isActive === true) || 0;
+  const activeStop = packageData.plannedRoute?.[activeStopIndex];
+
+  // Determine status for styling
+  const isCompleted = packageData.status === "Delivered";
+  // Highlight current stop
+  const isCancelled = packageData.status === "Cancelled";
+  const isInTransit = packageData.status === "In Transit";
+  const isCleared = packageData.status === "Customs Cleared";
+  const hasArrived = packageData.status === "Arrived at Facility";
+  const isHeld = packageData.status === "Customs Hold";
+
   return (
     <div className="min-h-screen bg-gray-50/50 p-6 lg:p-8">
       <div className="max-w-6xl mx-auto space-y-6 lg:space-y-8">
@@ -116,14 +130,13 @@ export default function PackageDetailsView({
               Tracking Details
               <span
                 className={`px-2 md:px-3 py-0.5 md:py-1 rounded-full text-xs lg:text-sm font-medium border ${
-                  packageData.status === "Delivered"
+                  isCompleted
                     ? "bg-green-50 text-green-700 border-green-200"
-                    : packageData.status === "In Transit"
+                    : isInTransit
                     ? "bg-blue-50 text-blue-700 border-blue-200"
-                    : packageData.status === "Customs" ||
-                      packageData.status === "Customs Hold"
+                    : isHeld
                     ? "bg-amber-50 text-amber-700 border-amber-200"
-                    : packageData.status === "Cancelled"
+                    : isCancelled
                     ? "bg-red-50 text-red-700 border-red-200"
                     : "bg-gray-100 text-gray-700 border-gray-200"
                 }`}
@@ -195,79 +208,100 @@ export default function PackageDetailsView({
 
               {/* Dynamic Route Visualization */}
               <div className="relative mb-8 lg:mb-12 mt-4">
-                {/* Background Line */}
-                <div className="absolute top-5 left-0 w-full h-1 bg-gray-100 rounded-full" />
-
-                {/* Active Progress Line */}
-                {/* Active Progress Line */}
-                <div
-                  className={`absolute top-5 left-0 h-1 rounded-full transition-all duration-1000 ${
-                    packageData.status === "Customs" ||
-                    packageData.status === "Customs Hold" ||
-                    packageData.status === "Exception"
-                      ? "bg-amber-500"
-                      : "bg-blue-600"
-                  }`}
-                  style={{ width: `${packageData.progress}%` }}
-                />
-
                 {/* Stops */}
-                <div className="relative flex justify-between w-full">
-                  {stops.map((stop, i) => {
-                    // Determine status for styling
-                    const isCompleted = stop.status === "Completed";
-                    // Highlight current stop
-                    const isCurrent =
-                      !isCompleted &&
-                      (i === 0 || stops[i - 1].status === "Completed");
-                    const isInTransit =
-                      stop.status === "In Transit" || isCurrent;
-                    const isPending = stop.status === "Pending";
-                    const isCleared = stop.status === "Cleared";
+                <div className="relative w-full h-24  overflow-x-auto overflow-y-hidden md:overflow-visible">
+                  <div className={`w-[250%] md:w-full flex  justify-between`}>
+                    {stops.map((stop, index) => {
+                      // Determine Icon
+                      let Icon = CircleDot;
+                      if (index === 0) Icon = MapPin;
+                      else if (index === stops.length - 1) Icon = Flag;
+                      else if (stop.location.includes("Port")) Icon = Ship;
+                      else if (stop.location.includes("Airport")) Icon = Plane;
+                      else if (stop.location.includes("Hub")) Icon = Box;
 
-                    // Determine Icon
-                    let Icon = CircleDot;
-                    if (i === 0) Icon = MapPin;
-                    else if (i === stops.length - 1) Icon = Flag;
-                    else if (stop.location.includes("Port")) Icon = Ship;
-                    else if (stop.location.includes("Airport")) Icon = Plane;
-                    else if (stop.location.includes("Hub")) Icon = Box;
+                      const canShowColor = index <= activeStopIndex;
+                      const step =
+                        100 / ((packageData.plannedRoute?.length || 2) - 1);
+                      const remWidth = packageData.progress % step;
 
-                    return (
-                      <div
-                        key={stop.id || i}
-                        className="flex flex-col bg- items-center gap-2 relative group"
-                      >
+                      const stokeWdith =
+                        index < activeStopIndex ? 100 : (remWidth / step) * 100;
+
+                      return (
                         <div
-                          className={`w-8 h-8 lg:w-10 lg:h-10 mt-2 md:mt-0 rounded-full border-[3px] z-10 flex items-center justify-center transition-all duration-500 bg-white ${
-                            isCompleted || isCleared
-                              ? "border-blue-600 text-blue-600 shadow-lg shadow-blue-600/20"
-                              : isInTransit
-                              ? "border-blue-600 text-blue-600 ring-4 ring-blue-100"
-                              : "border-gray-200 text-gray-300"
+                          key={stop.id || index}
+                          className={`flex  justify-start  items-center gap-2 relative group ${
+                            index < stops.length - 1 ? "w-full" : "w-auto"
                           }`}
                         >
-                          <Icon className="w-4 h-4 lg:w-5 lg:h-5" />
-                        </div>
+                          <div
+                            className={`flex w-full items-center justify-start`}
+                          >
+                            <div
+                              className={`w-8 h-8 lg:w-10 lg:h-10 mt-2 md:mt-0 rounded-full border-[3px] z-10 flex items-center justify-center transition-all duration-500 bg-white ${
+                                index <= activeStopIndex &&
+                                (isCleared || hasArrived)
+                                  ? "border-blue-600 text-blue-600 shadow-lg shadow-blue-600/20"
+                                  : index <= activeStopIndex && isInTransit
+                                  ? "border-blue-600 text-blue-600 ring-4 ring-blue-100"
+                                  : index <= activeStopIndex && isCancelled
+                                  ? "border-red-600 text-red-600 ring-4 ring-red-100"
+                                  : index <= activeStopIndex && isHeld
+                                  ? "border-amber-600 text-amber-600 ring-4 ring-amber-100"
+                                  : index <= activeStopIndex && isCompleted
+                                  ? "border-green-600 text-green-600 ring-4 ring-green-100"
+                                  : "border-gray-200 text-gray-300"
+                              }`}
+                            >
+                              <Icon className="w-4 h-4 lg:w-5 lg:h-5" />
+                            </div>
+                            {/* Line */}
+                            {index < stops.length - 1 && (
+                              <div className="w-[calc(100%-40px)] h-1 bg-gray-100">
+                                <div
+                                  className={` rounded-full h-1 rounded-full transition-all duration-1000 ${
+                                    canShowColor
+                                      ? isHeld
+                                        ? "bg-amber-500"
+                                        : isCancelled
+                                        ? "bg-red-600"
+                                        : isCompleted
+                                        ? "bg-green-600"
+                                        : "bg-blue-600"
+                                      : "bg-gray-100"
+                                  }`}
+                                  style={{ width: `${stokeWdith}%` }}
+                                ></div>
+                              </div>
+                            )}
+                          </div>
 
-                        {/* Label */}
-                        <div className="absolute top-12 left-1/2 -translate-x-1/2 w-32 text-center">
-                          <p
-                            className={`text-[10px] lg:text-xs font-bold uppercase tracking-wider transition-colors duration-500 ${
-                              isCompleted || isCleared || isInTransit
-                                ? "text-blue-900"
-                                : "text-gray-400"
+                          {/* Label */}
+                          <div
+                            className={`absolute top-12  -translate-x-1/2 w-32 text-center ${
+                              index < stops.length - 1 ? "left-6" : "left-1/2"
                             }`}
                           >
-                            {stop.location.split(",")[0]}
-                          </p>
-                          <p className="text-[10px] text-gray-400 mt-0.5">
-                            {stop.date?.split("(")[0]}
-                          </p>
+                            <p
+                              className={`text-[10px] lg:text-xs font-bold uppercase tracking-wider transition-colors duration-500 ${
+                                index < activeStopIndex &&
+                                (isCompleted || isCleared || isInTransit)
+                                  ? "text-blue-900"
+                                  : index <= activeStopIndex && hasArrived
+                                  ? "text-green-900"
+                                  : index <= activeStopIndex && isHeld
+                                  ? "text-amber-600"
+                                  : "text-gray-400"
+                              }`}
+                            >
+                              {stop.location.split(",")[0]}
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
 
