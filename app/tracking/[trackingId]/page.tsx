@@ -3,6 +3,19 @@ import Footer from "@/features/shared/ui/footer";
 import TrackingDetails from "@/features/tracking/ui/TrackingDetails";
 import { getPackageById } from "@/features/packages/actions";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ trackingId: string }>;
+}): Promise<Metadata> {
+  const trackingId = (await params).trackingId;
+  return {
+    title: `Tracking ${trackingId} - LogiCore`,
+    description: `View detailed tracking information for shipment ${trackingId}.`,
+  };
+}
 
 export default async function TrackingDetailsPage({
   params,

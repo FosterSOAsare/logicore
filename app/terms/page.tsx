@@ -1,5 +1,12 @@
 import Navbar from "@/features/shared/ui/navbar";
 import Footer from "@/features/shared/ui/footer";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Service - LogiCore",
+  description:
+    "Review the Terms of Service for using LogiCore's website and services.",
+};
 
 export default function TermsOfServicePage() {
   return (
