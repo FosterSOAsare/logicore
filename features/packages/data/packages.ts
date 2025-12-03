@@ -1,0 +1,55 @@
+// Mock Data
+const packages = [
+  {
+    id: "LGC-882910",
+    receiver: "TechFlow Inc.",
+    origin: "Shanghai, CN",
+    destination: "San Francisco, US",
+    status: "In Transit",
+    date: "Dec 01, 2025",
+    type: "Sea Freight",
+    weight: "4,500 kg",
+  },
+  {
+    id: "LGC-992103",
+    receiver: "Global Trade Solutions",
+    origin: "Hamburg, DE",
+    destination: "New York, US",
+    status: "Delivered",
+    date: "Nov 28, 2025",
+    type: "Air Freight",
+    weight: "1,200 kg",
+  },
+  {
+    id: "LGC-773211",
+    receiver: "BuildRight Construction",
+    origin: "Dubai, AE",
+    destination: "London, UK",
+    status: "Pending",
+    date: "Dec 02, 2025",
+    type: "Road Freight",
+    weight: "8,300 kg",
+  },
+  {
+    id: "LGC-554102",
+    receiver: "Acme Corp",
+    origin: "Tokyo, JP",
+    destination: "Sydney, AU",
+    status: "Customs",
+    date: "Nov 30, 2025",
+    type: "Sea Freight",
+    weight: "12,000 kg",
+  },
+  {
+    id: "LGC-332190",
+    receiver: "Zenith Logistics",
+    origin: "Singapore, SG",
+    destination: "Toronto, CA",
+    status: "In Transit",
+    date: "Dec 01, 2025",
+    type: "Air Freight",
+    weight: "500 kg",
+  },
+];
+
+export default packages;
