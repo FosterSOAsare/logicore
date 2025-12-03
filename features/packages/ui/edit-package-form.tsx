@@ -59,8 +59,6 @@ export default function EditPackageForm({ initialData }: EditPackageFormProps) {
 
   const { trigger } = form;
 
-  console.log(form.formState.errors);
-
   const processStep = async () => {
     let fieldsToValidate: (keyof PackageFormValues)[] = [];
 

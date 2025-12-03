@@ -18,8 +18,6 @@ export default async function PackagesPage({
 
   const packages = await getPackages({ query, status });
 
-  console.log(packages);
-
   return (
     <>
       <PackagesHeader />

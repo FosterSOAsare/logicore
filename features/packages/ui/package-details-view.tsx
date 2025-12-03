@@ -76,7 +76,6 @@ export default function PackageDetailsView({
 }: {
   packageData: PackageDetails;
 }) {
-  console.log(packageData.status, packageData.progress);
   // Use plannedRoute if available, otherwise fallback to a basic 2-step
   const stops =
     packageData.plannedRoute && packageData.plannedRoute.length > 0

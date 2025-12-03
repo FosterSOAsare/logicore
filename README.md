@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Logicore - Global Logistics & Tracking Solution
 
-## Getting Started
+Logicore is a modern, full-stack logistics platform designed to streamline shipment management and provide real-time tracking capabilities for customers. Built with performance and user experience in mind, it offers a seamless interface for both administrators and end-users.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Real-Time Tracking:** Customers can track their shipments with precision, viewing detailed timelines, current status, and a dynamic route visualization.
+- **Admin Dashboard:** A comprehensive admin interface for creating, updating, and managing packages.
+- **Dynamic Route Visualization:** Visual representation of shipment routes with segmented progress lines and status-specific indicators.
+- **Responsive Design:** Fully responsive UI that adapts perfectly to mobile, tablet, and desktop screens.
+- **Status Management:** Granular control over package statuses (e.g., In Transit, Customs Hold, Delivered) with automated visual feedback.
+- **Secure & Scalable:** Built on a robust tech stack ensuring security and scalability.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework:** [Next.js 14](https://nextjs.org/) (App Router)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Database:** [MongoDB](https://www.mongodb.com/) with [Mongoose](https://mongoosejs.com/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Forms:** [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🏁 Getting Started
 
-## Learn More
+Follow these steps to set up the project locally.
 
-To learn more about Next.js, take a look at the following resources:
+### Prerequisites
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Node.js (v18 or higher)
+- npm, yarn, or pnpm
+- MongoDB instance (local or cloud)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Installation
 
-## Deploy on Vercel
+1.  **Clone the repository:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    ```bash
+    git clone https://github.com/yourusername/logicore.git
+    cd logicore
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2.  **Install dependencies:**
+
+    ```bash
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    ```
+
+3.  **Set up environment variables:**
+
+    Create a `.env` file in the root directory and add your MongoDB connection string and other necessary variables.
+
+    ```env
+    MONGODB_URI=your_mongodb_connection_string
+    # Add other variables as needed
+    ```
+
+4.  **Run the development server:**
+
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
+    ```
+
+5.  **Open your browser:**
+
+    Navigate to [http://localhost:3000](http://localhost:3000) to see the application running.
+
+## 📁 Project Structure
+
+- `/app`: Next.js App Router pages and layouts.
+- `/features`: Feature-based architecture containing UI components, actions, and logic for specific domains (e.g., `packages`, `tracking`, `homepage`).
+- `/lib`: Shared utilities, database connections, and models.
+- `/public`: Static assets.
+
+## 🎨 Design System
+
+Logicore uses a custom design system built on top of Tailwind CSS, featuring:
+
+- **Primary Color:** Navy Blue (`#0f172a`)
+- **Secondary Color:** Sky Blue (`#0ea5e9`)
+- **Typography:** Modern sans-serif fonts for high readability.
+
+## 📄 License
+
+This project is licensed under the MIT License.
