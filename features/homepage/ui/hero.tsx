@@ -83,7 +83,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.3, type: "spring" }}
-            className="bg-white p-2 rounded-2xl shadow-2xl shadow-black/10 mt-16 lg:mt-32 max-w-4xl mx-auto"
+            className="bg-white p-2 rounded-2xl shadow-2xl shadow-black/10 mt-16 lg:mt-26 max-w-4xl mx-auto"
           >
             <div className="flex flex-col sm:flex-row items-center p-2 gap-2">
               <div className="flex-1 flex items-center px-4 h-14 bg-gray-50 rounded-xl w-full border border-gray-200 focus-within:border-secondary focus-within:bg-white transition-all">
@@ -114,6 +114,20 @@ export default function Hero() {
               </button>
             </div>
           </motion.div>
+
+          {/* Suggested IDs */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-white/60 text-sm md:text-base mt-6 font-medium"
+          >
+            For Testing, Try:{" "}
+            <span className="text-white select-all">LGC-763364</span> ,{" "}
+            <span className="text-white select-all">LGC-697993</span> ,{" "}
+            <span className="text-white select-all">LGC-250116</span>. Contact
+            us for demo
+          </motion.p>
         </div>
       </div>
     </section>

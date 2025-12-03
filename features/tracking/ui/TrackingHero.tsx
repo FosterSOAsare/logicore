@@ -116,6 +116,18 @@ export default function TrackingHero() {
             </div>
           </motion.div>
 
+          {/* Suggested IDs */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-white/60 text-sm md:text-base mb-12 font-medium"
+          >
+            Try: <span className="text-white select-all">LGC-763364</span> ,{" "}
+            <span className="text-white select-all">LGC-697993</span> ,{" "}
+            <span className="text-white select-all">LGC-250116</span>
+          </motion.p>
+
           {/* Features Grid */}
           <motion.div
             initial="hidden"

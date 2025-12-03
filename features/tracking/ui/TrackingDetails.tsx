@@ -1,15 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   CheckCircle2,
   Clock,
   MapPin,
-  Package,
   Truck,
   Plane,
-  Globe,
   Weight,
   FileText,
   Copy,
@@ -18,7 +17,7 @@ import {
   Ship,
   Flag,
   CircleDot,
-  User,
+  Check,
 } from "lucide-react";
 
 interface IRouteStop {
@@ -73,6 +72,14 @@ export default function TrackingDetails({
 }: {
   packageData: PackageDetails;
 }) {
+  const [isCopied, setIsCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(packageData.id);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
+  };
+
   // Use plannedRoute if available, otherwise fallback to a basic 2-step
   const stops =
     packageData.plannedRoute && packageData.plannedRoute.length > 0
@@ -134,8 +141,15 @@ export default function TrackingDetails({
               <span className="font-mono text-primary font-semibold break-all">
                 {packageData.id}
               </span>
-              <button className="text-gray-400 hover:text-secondary active:text-secondary transition-colors shrink-0">
-                <Copy className="w-4 h-4" />
+              <button
+                onClick={handleCopy}
+                className="text-gray-400 hover:text-secondary active:text-secondary transition-colors shrink-0"
+              >
+                {isCopied ? (
+                  <Check className="w-4 h-4 text-green-500" />
+                ) : (
+                  <Copy className="w-4 h-4" />
+                )}
               </button>
             </p>
           </div>
