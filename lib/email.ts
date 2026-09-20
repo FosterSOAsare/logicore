@@ -1,7 +1,7 @@
 import { readFile } from "fs/promises";
 import path from "path";
 import Handlebars from "handlebars";
-import nodemailer from "nodemailer";
+import nodemailer, { type Transporter } from "nodemailer";
 
 interface ContactEmailData {
   firstName: string;
@@ -26,7 +26,7 @@ interface QuoteEmailData {
 }
 
 export class EmailService {
-  private transporter?: nodemailer.Transporter;
+  private transporter?: Transporter;
   private templatesDir: string;
   private templates: { [key: string]: HandlebarsTemplateDelegate } = {};
   private isConfigured: boolean = false;
