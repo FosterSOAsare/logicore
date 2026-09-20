@@ -60,27 +60,13 @@ export default function Quote() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text Content */}
           <div>
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 mb-6"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-              <span className="text-secondary font-semibold tracking-wide uppercase text-xs">
-                Get in Touch
-              </span>
-            </motion.div>
-
             {/* Heading */}
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl lg:text-4xl md:text-5xl font-bold text-primary mt-3 mb-6 tracking-tight"
+              className="text-3xl lg:text-4xl md:text-5xl font-bold text-primary mb-6 tracking-tight"
             >
               Ready to Streamline <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">

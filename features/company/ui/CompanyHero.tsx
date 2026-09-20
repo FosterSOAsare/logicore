@@ -12,6 +12,7 @@ export default function CompanyHero() {
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
           alt="Company Team"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
@@ -25,12 +26,6 @@ export default function CompanyHero() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 shadow-sm mb-6 lg:mb-8 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-            <span className="text-white font-semibold tracking-wide uppercase text-xs">
-              About Us
-            </span>
-          </div>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold !text-white mb-6 lg:mb-8 tracking-tight leading-[1.1]">
             Building the Future of <br />
             <span className="text-secondary">Global Logistics</span>

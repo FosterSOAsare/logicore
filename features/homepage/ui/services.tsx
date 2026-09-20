@@ -16,13 +16,7 @@ export default function Services() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-              <span className="text-secondary font-semibold tracking-wide uppercase text-xs">
-                Our Expertise
-              </span>
-            </div>
-            <h2 className="text-3xl lg:text-4xl md:text-5xl font-bold text-primary mt-3 mb-6 tracking-tight">
+            <h2 className="text-3xl lg:text-4xl md:text-5xl font-bold text-primary mb-6 tracking-tight">
               Comprehensive Logistics <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                 Solutions for Every Need

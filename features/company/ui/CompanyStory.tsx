@@ -29,16 +29,6 @@ export default function CompanyStory() {
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary font-semibold text-sm mb-6"
-          >
-            <span className="w-2 h-2 rounded-full bg-secondary" />
-            Our Journey
-          </motion.div>
-
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -78,6 +68,7 @@ export default function CompanyStory() {
                   src="/company-story.png"
                   alt="Our Team"
                   fill
+                  sizes="(min-width: 1024px) 576px, 100vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
@@ -101,6 +92,7 @@ export default function CompanyStory() {
                   src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop"
                   alt="Team Collaboration"
                   fill
+                  sizes="(min-width: 1024px) 280px, 50vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-primary/20" />
@@ -117,6 +109,7 @@ export default function CompanyStory() {
                   src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop"
                   alt="Global Operations"
                   fill
+                  sizes="(min-width: 1024px) 280px, 50vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-secondary/20" />

@@ -58,12 +58,6 @@ export default function Testimonials() {
             transition={{ duration: 0.5 }}
             className="max-w-2xl"
           >
-            <div className="flex items-center gap-2 mb-4">
-              <span className="h-px w-8 bg-secondary"></span>
-              <span className="text-secondary font-bold tracking-widest uppercase text-xs">
-                Testimonials
-              </span>
-            </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-primary tracking-tight">
               What our partners say
             </h2>
@@ -100,6 +94,7 @@ export default function Testimonials() {
                     src={testimonial.image}
                     alt={testimonial.author}
                     fill
+                    sizes="56px"
                     className="object-cover"
                   />
                 </div>

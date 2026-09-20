@@ -32,27 +32,13 @@ export default function WhyUs() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content Side */}
           <div>
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 mb-6"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-              <span className="text-secondary font-semibold tracking-wide uppercase text-xs">
-                Why Choose LogiCore
-              </span>
-            </motion.div>
-
             {/* Heading */}
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl lg:text-4xl md:text-5xl font-bold text-primary mt-3 mb-6 lg:mb-8 tracking-tight leading-tight"
+              className="text-3xl lg:text-4xl md:text-5xl font-bold text-primary mb-6 lg:mb-8 tracking-tight leading-tight"
             >
               We Deliver Certainty in an <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
@@ -113,6 +99,7 @@ export default function WhyUs() {
                 src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
                 alt="Modern Logistics Warehouse"
                 fill
+                sizes="(min-width: 1024px) 576px, 100vw"
                 className="object-cover"
               />
 

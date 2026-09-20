@@ -29,6 +29,7 @@ export default function Hero() {
           src="/hero-image.png"
           alt="Global Logistics Network"
           fill
+          sizes="100vw"
           className="object-cover object-[center_20%] md:scale-130 md:mt-26 mix-blend-overlay"
           priority
         />
@@ -38,22 +39,6 @@ export default function Hero() {
 
       <div className="w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8  relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 border border-white/10 shadow-sm mb-6 lg:mb-8 backdrop-blur-sm mx-auto"
-          >
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
-            </span>
-            <span className="text-gray-200 font-semibold tracking-wide text-xs lg:text-sm">
-              #1 Global Logistics Partner
-            </span>
-          </motion.div>
-
           {/* Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}

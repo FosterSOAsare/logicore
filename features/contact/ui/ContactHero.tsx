@@ -12,6 +12,7 @@ export default function ContactHero() {
           src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2072&auto=format&fit=crop"
           alt="Contact Support"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
@@ -25,12 +26,6 @@ export default function ContactHero() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 shadow-sm mb-6 lg:mb-8 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-            <span className="text-white font-semibold tracking-wide uppercase text-xs">
-              Get in Touch
-            </span>
-          </div>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold !text-white mb-6 lg:mb-8 tracking-tight leading-[1.1]">
             We're Here to <br />
             <span className="text-secondary">Help You</span>

@@ -22,6 +22,7 @@ export default function ServiceDetailHero({
           src="/service-detail-bg.png"
           alt="Abstract Logistics Background"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />

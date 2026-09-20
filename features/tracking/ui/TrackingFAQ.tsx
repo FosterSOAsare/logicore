@@ -41,14 +41,6 @@ export default function TrackingFAQ() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Header */}
           <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary font-semibold text-sm mb-6"
-            >
-              Support Center
-            </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
