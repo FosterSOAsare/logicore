@@ -64,7 +64,7 @@ interface PackageDetails {
     status: string;
     location: string;
     date: string;
-    time: string;
+    time?: string;
     completed: boolean;
     current?: boolean;
   }[];

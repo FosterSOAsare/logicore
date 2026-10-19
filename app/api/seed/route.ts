@@ -302,6 +302,11 @@ const seedPackages = [
 ];
 
 export async function GET() {
+  // Destructive: wipes the packages collection. Never expose outside local development.
+  if (process.env.NODE_ENV !== "development") {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+
   try {
     await connectToDatabase();
 

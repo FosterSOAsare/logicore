@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getPackageById } from "@/features/packages/actions";
+import { getPackageById } from "@/features/packages/data/queries";
 import EditTrackerForm from "@/features/packages/ui/edit-tracker-form";
 
 interface PageProps {

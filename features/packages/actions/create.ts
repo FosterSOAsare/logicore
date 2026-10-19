@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import connectToDatabase from "@/lib/db/connect";
 import Package, { IPackage } from "@/lib/db/models/package.model";
 import { packageFormSchema, PackageFormValues } from "../schemas";
+import { requireAdmin } from "@/lib/auth/session";
 
 function generateTrackingId() {
   const prefix = "LGC";
@@ -12,6 +13,8 @@ function generateTrackingId() {
 }
 
 export async function createPackage(data: PackageFormValues) {
+  await requireAdmin();
+
   try {
     const validatedFields = packageFormSchema.safeParse(data);
 

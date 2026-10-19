@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import connectToDatabase from "@/lib/db/connect";
 import Package from "@/lib/db/models/package.model";
 import { packageFormSchema, PackageFormValues } from "../schemas";
+import { requireAdmin } from "@/lib/auth/session";
 
 export type STATUS =
   | "Pending"
@@ -30,6 +31,8 @@ export async function updatePackage(
   trackingId: string,
   data: PackageFormValues
 ) {
+  await requireAdmin();
+
   try {
     const validatedFields = packageFormSchema.safeParse(data);
 
@@ -57,7 +60,9 @@ export async function updatePackage(
     } = validatedFields.data;
 
     // Let's fetch the package first to get existing dates.
-    const existingPackage = await Package.findOne({ trackingId });
+    const existingPackage = await Package.findOne({
+      trackingId: String(trackingId),
+    });
     if (!existingPackage) return { error: "Package not found" };
 
     existingPackage.receiver = {
@@ -102,7 +107,7 @@ export async function updatePackage(
         location: destinationLocation,
         date: destinationDate,
       },
-    ] as any;
+    ];
 
     await existingPackage.save();
     revalidatePath(`/xfa/admin/packages/${trackingId}`);
@@ -116,15 +121,17 @@ export async function updatePackage(
 }
 
 export async function updateTracker(trackingId: string, status: string) {
+  await requireAdmin();
+
   try {
     await connectToDatabase();
 
-    const pkg = await Package.findOne({ trackingId });
+    const pkg = await Package.findOne({ trackingId: String(trackingId) });
     if (!pkg) return { error: "Package not found" };
 
     // Find current active stop (first non-completed)
-    let currentStopIndex = pkg.plannedRoute.findIndex(
-      (s: any) => s.isActive === true
+    const currentStopIndex = pkg.plannedRoute.findIndex(
+      (s) => s.isActive === true
     );
 
     // If all are completed,throw an error
@@ -149,22 +156,6 @@ export async function updateTracker(trackingId: string, status: string) {
       hour: "2-digit",
       minute: "2-digit",
     });
-
-    let description = status;
-    if (status === "Departed Origin")
-      description = "Departed from origin facility";
-    else if (status === "Arrived at Destination")
-      description = "Arrived at destination facility";
-    else if (status === "In Transit")
-      description = `In transit to next facility`;
-    else if (status === "Arrived at Facility")
-      description = `Arrived at ${currentStop.location}`;
-    else if (status === "Customs Cleared")
-      description = "Customs clearance processing complete";
-    else if (status === "Out for Delivery")
-      description = "Package is out for delivery";
-    else if (status === "Delivered")
-      description = "Package delivered successfully";
 
     pkg.timeline.unshift({
       status: status,
@@ -206,13 +197,15 @@ export async function updateTracker(trackingId: string, status: string) {
   }
 }
 export async function advancePackageStep(trackingId: string) {
+  await requireAdmin();
+
   try {
     await connectToDatabase();
-    const pkg = await Package.findOne({ trackingId });
+    const pkg = await Package.findOne({ trackingId: String(trackingId) });
     if (!pkg) return { error: "Package not found" };
     // Find current active stop (first non-completed)
     const currentStopIndex = pkg.plannedRoute.findIndex(
-      (s: any) => s.isActive === true
+      (s) => s.isActive === true
     );
     if (currentStopIndex === -1) {
       return { error: "Package route already completed" };

@@ -1,7 +1,7 @@
 import Navbar from "@/features/shared/ui/navbar";
 import Footer from "@/features/shared/ui/footer";
 import TrackingDetails from "@/features/tracking/ui/TrackingDetails";
-import { getPackageById } from "@/features/packages/actions";
+import { getPublicTracking } from "@/features/packages/data/queries";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
@@ -23,7 +23,7 @@ export default async function TrackingDetailsPage({
   params: Promise<{ trackingId: string }>;
 }) {
   const trackingId = (await params).trackingId;
-  const packageData = await getPackageById(trackingId);
+  const packageData = await getPublicTracking(trackingId);
 
   if (!packageData) {
     notFound();

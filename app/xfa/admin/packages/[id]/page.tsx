@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getPackageById } from "@/features/packages/actions";
+import { getPackageById } from "@/features/packages/data/queries";
 import PackageDetailsView from "@/features/packages/ui/package-details-view";
 
 export default async function SinglePackagePage({

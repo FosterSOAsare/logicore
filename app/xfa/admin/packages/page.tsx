@@ -1,6 +1,6 @@
 import PackagesHeader from "@/features/packages/ui/packages-header";
 import PackagesList from "@/features/packages/ui/packages-list";
-import { getPackages } from "@/features/packages/actions";
+import { getPackages } from "@/features/packages/data/queries";
 
 export default async function PackagesPage({
   searchParams,

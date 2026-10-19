@@ -34,7 +34,7 @@ export interface ITimelineEvent {
 export interface IRouteStop {
   id: string;
   location: string;
-  isActive: boolean;
+  isActive?: boolean;
   date?: string; // Expected or Actual date
 }
 

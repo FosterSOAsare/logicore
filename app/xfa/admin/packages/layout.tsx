@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Package, Box, Settings, LogOut } from "lucide-react";
+import { logout } from "@/features/auth/actions";
 
 export default function PackagesLayout({
   children,
@@ -66,10 +67,15 @@ export default function PackagesLayout({
               </p>
             </div>
           </div>
-          <button className="flex items-center gap-3 px-4 py-2 w-full hover:bg-red-50 text-slate-500 hover:text-red-600 rounded-lg transition-colors text-sm font-medium">
-            <LogOut className="w-4 h-4" />
-            Sign Out
-          </button>
+          <form action={logout}>
+            <button
+              type="submit"
+              className="flex items-center gap-3 px-4 py-2 w-full hover:bg-red-50 text-slate-500 hover:text-red-600 rounded-lg transition-colors text-sm font-medium"
+            >
+              <LogOut className="w-4 h-4" />
+              Sign Out
+            </button>
+          </form>
         </div>
       </aside>
 

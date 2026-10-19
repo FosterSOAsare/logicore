@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Lock, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { login } from "@/features/auth/actions";
 
 export default function AdminLogin() {
   const [password, setPassword] = useState("");
@@ -16,15 +17,16 @@ export default function AdminLogin() {
     setIsLoading(true);
     setError(false);
 
-    setTimeout(() => {
-      if (password === "admin123") {
-        router.push("/xfa/admin/packages");
-      } else {
-        setIsLoading(false);
-        setError(true);
-        setPassword("");
-      }
-    }, 1000);
+    const result = await login(password);
+
+    if (result.success) {
+      router.push("/xfa/admin/packages");
+      router.refresh();
+    } else {
+      setIsLoading(false);
+      setError(true);
+      setPassword("");
+    }
   };
 
   return (

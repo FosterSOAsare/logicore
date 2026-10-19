@@ -1,5 +1,5 @@
 import { notFound, redirect } from "next/navigation";
-import { getPackageById } from "@/features/packages/actions";
+import { getPackageById } from "@/features/packages/data/queries";
 import EditPackageForm from "@/features/packages/ui/edit-package-form";
 import { PackageFormValues } from "@/features/packages/schemas";
 import { error } from "console";

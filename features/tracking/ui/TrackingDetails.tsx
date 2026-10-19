@@ -34,12 +34,6 @@ interface PackageDetails {
   progress: number;
   service: string;
   carrier?: string;
-  receiver: {
-    name: string;
-    email: string;
-    phone: string;
-    address: string;
-  };
   origin: {
     location: string;
     date: string;
@@ -52,15 +46,13 @@ interface PackageDetails {
   };
   details: {
     weight: string;
-    dimensions: string;
     items: number;
-    value: string;
   };
   timeline: {
     status: string;
     location: string;
     date: string;
-    time: string;
+    time?: string;
     completed: boolean;
     current?: boolean;
   }[];

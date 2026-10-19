@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import NewPackageForm from "@/features/packages/ui/new-package-form";
+import { requireAdmin } from "@/lib/auth/session";
 
-export default function NewPackagePage() {
+export default async function NewPackagePage() {
+  await requireAdmin();
+
   return (
     <div className="min-h-screen bg-gray-50/50 p-6 lg:p-8">
       <div className="max-w-4xl mx-auto space-y-8">
